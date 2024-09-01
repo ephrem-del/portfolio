@@ -20,9 +20,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className=" fixed top-0 left-0 w-full">
-      <div className="container flex items-center justify-center mx-auto my-4 gap-20  ">
-        <div className="flex items-center gap-3">
+    <div className="w-full">
+      <div className="container flex items-center justify-center my-4 gap-20  ">
+        <div className="flex items-center gap-4">
           <div className="w-17 h-17 rounded-full overflow-hidden ">
             <Image
               src={logo}
@@ -32,17 +32,15 @@ const Navbar = () => {
               className="object-cover"
             />
           </div>
-          <p className="text-lg first-letter:font-bold ">Ephrem</p>
+          <p className="text-[32px] first-letter:font-bold ">Ephrem</p>
         </div>
-        <div className="flex gap-10 ">
+        <div className="flex gap-5 ">
           <ul className=" hidden md:flex gap-5">
             <Link href={"/"}>
               <li>Home</li>
             </Link>
             <Link href={""}>
-              <li className="whitespace-nowrap">
-                
-                About Me</li>
+              <li className="whitespace-nowrap">About Me</li>
             </Link>
             <Link href={""}>
               <li>Services</li>
@@ -60,8 +58,8 @@ const Navbar = () => {
           <div onClick={handleNav} className="md:hidden">
             <AiOutlineMenu />
           </div>
-          <button className=" hidden sm:flex bg-blue-500 px-2 py-1 text-white rounded whitespace-nowrap">
-            <p className="text-xs"> Download CV</p>
+          <button className=" hidden sm:flex bg-blue-500 px-5 py-1 text-white rounded whitespace-nowrap">
+            <p className="text-sm"> Download CV</p>
           </button>
         </div>
       </div>
