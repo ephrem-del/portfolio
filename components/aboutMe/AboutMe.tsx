@@ -4,7 +4,7 @@ import photoP from "../../public/photoP.jpg";
 
 const AboutMe = () => {
   return (
-    <div id="about-me" className="flex justify-center gap-[8rem] ">
+    <div className="flex gap-[8rem] ">
       <div className="relative w-[150px] h-[150px] overflow-hidden rounded-full">
         <Image src={photoP} alt="profile photo" />
       </div>
