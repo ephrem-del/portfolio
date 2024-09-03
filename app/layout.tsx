@@ -18,10 +18,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} min-h-screen flex flex-col items-center gap-20 `}
+        className={`${inter.className}flex flex-col items-center justify-center `}
       >
-        <Navbar />
-        {children}
+        <div className="w-full relative overflow-hidden flex flex-col pt-[61px] pb-[691px] box-border gap-[139px] leading-[normal] tracking-[normal]">
+          <section className="flex flex-row items-center justify-center py-0 box-border max-w-full shrink-0 text-center">
+            <div className="flex flex-col items-center justify-center gap-[69.5px] max-w-full">
+              <header className=" flex flex-row pb-[50.5px] box-border max-w-full">
+                <Navbar />
+              </header>
+              <div className="flex flex-row items-start justify-center">
+                <div className="flex flex-col items-center gap-[36.8px]">
+                  {children}
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       </body>
     </html>
   );

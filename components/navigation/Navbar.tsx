@@ -11,6 +11,7 @@ import {
   FaLinkedinIn,
   FaTwitter,
 } from "react-icons/fa";
+import NavLinks from "./nav-links";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -20,49 +21,47 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full">
-      <div className="container flex items-center justify-center my-4 gap-20  ">
-        <div className="flex items-center gap-4">
-          <div className="w-17 h-17 rounded-full overflow-hidden ">
+    <>
+      <div className=" flex flex-row items-center justify-center gap-2">
+        <div className="w-[700px] flex flex-col items-start justify-start">
+          <div className="flex flex-row gap-5 ">
             <Image
               src={logo}
-              height={50}
-              width={50}
+              height={67}
+              width={67}
               alt="portfolio"
               className="object-cover"
             />
+            <div className="flex-1 flex flex-col items-start justify-start pt-2.5 px-0 pb-0">
+              <Link
+                href={""}
+                className="[text-decoration:none] self-stretch h-[59px] relative text-stone-950 text-[2rem] inline-block whitespace-nowrap"
+              >
+                <b>E</b>
+                <span>{`phrem `}</span>
+              </Link>
+            </div>
           </div>
-          <p className="text-[32px] first-letter:font-bold ">Ephrem</p>
         </div>
-        <div className="flex gap-5 ">
-          <ul className=" hidden md:flex gap-5">
-            <Link href={"/"}>
-              <li>Home</li>
-            </Link>
-            <Link href={""}>
-              <li className="whitespace-nowrap">About Me</li>
-            </Link>
-            <Link href={""}>
-              <li>Services</li>
-            </Link>
-            <Link href={""}>
-              <li>Projects</li>
-            </Link>
-            <Link href={""}>
-              <li>Testimonials</li>
-            </Link>
-            <Link href={""}>
-              <li>Contact</li>
-            </Link>
-          </ul>
-          <div onClick={handleNav} className="md:hidden">
-            <AiOutlineMenu />
-          </div>
-          <button className=" hidden sm:flex bg-blue-500 px-5 py-1 text-white rounded whitespace-nowrap">
-            <p className="text-sm"> Download CV</p>
+        <nav className="flex flex-col items-start justify-start pt-[7px]">
+          <nav className=" flex flex-row items-start justify-start gap-3 text-xl">
+            <div className="flex flex-row items-start justify-start py-2.5 cursor-pointer">
+              <NavLinks />
+            </div>
+          </nav>
+        </nav>
+        <div onClick={handleNav} className="md:hidden">
+          <AiOutlineMenu />
+        </div>
+        <div className="flex flex-col items-start justify-start pt-[7px] px-0 pb-0">
+          <button className="cursor-pointer [border:none] p-[10px] bg-red-500 rounded-lg flex flex-row items-start justify-start whitespace-nowrap hover:bg-orangered">
+            <a className="[text-decoration:none] relative text-xl tracking-[0.03em] text-white inline-block z-[1]">
+              Downlaod CV
+            </a>
           </button>
         </div>
       </div>
+
       <div
         className={
           nav
@@ -135,7 +134,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
