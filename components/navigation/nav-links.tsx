@@ -24,14 +24,10 @@ const NavLinks = () => {
           key={link.name}
           href={link.href}
           className={clsx(
-            // "flex items-center justify-center font-sm text-stone-950 hover:text-blue-400",
-            "[text-decoration:none] relative tracking-[0.03em] text-stone-950 inline-block min-w-[66px] px-[13px] cursor-pointer",
+            "[text-decoration:none] tracking-[0.03em] text-5xl font-nav-bar-text-21 px-[12px] cursor-pointer hover:text-blue-600 text-nowrap",
             { "bg-sky-100 text-blue-600": pathname === link.href }
           )}
         >
-          {/* <p className="relative tracking-[0.03em] text-[inherit] inline-block min-w-[66px] md:flex">
-            {link.name}
-          </p> */}
           {link.name}
         </Link>
       ))}
