@@ -3,13 +3,10 @@ import React from "react";
 import { FaDiscord, FaFacebook, FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 const socialLinks = [
-  { href: "", icon: FaLinkedinIn },
-  {
-    href: "",
-    icon: FaGithub,
-  },
-  { href: "", icon: FaFacebook },
-  { href: "", icon: FaDiscord },
+  { id: 1, href: "", icon: FaLinkedinIn },
+  { id: 2, href: "", icon: FaGithub },
+  { id: 3, href: "", icon: FaFacebook },
+  { id: 4, href: "", icon: FaDiscord },
 ];
 
 const SocialLinks = () => {
@@ -18,8 +15,8 @@ const SocialLinks = () => {
       {socialLinks.map((socialLink) => {
         const LinkIcon = socialLink.icon;
         return (
-          <Link key={""} href={socialLink.href} className=" ">
-            <LinkIcon  className="mx-3 size-8 text-dimgray hover:text-blue-800" />
+          <Link key={socialLink.id} href={socialLink.href} className=" ">
+            <LinkIcon className="mx-3 size-5 text-dimgray hover:text-blue-800 desktop:size-8" />
           </Link>
         );
       })}

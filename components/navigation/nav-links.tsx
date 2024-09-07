@@ -1,36 +1,58 @@
 "use client";
-
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import {
+  FaBookmark,
+  FaHome,
+  FaLayerGroup,
+  FaProjectDiagram,
+  FaServicestack,
+} from "react-icons/fa";
+import { FaPerson } from "react-icons/fa6";
 
 const links = [
-  { name: "Home", href: "#home" },
-  { name: "About Me", href: "#about-me" },
-  { name: "Services", href: "#services" },
-  { name: "Projects", href: "#projects" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "#hero", icon: FaHome },
+  { name: "About Me", href: "#about-me", icon: FaPerson },
+  { name: "Services", href: "#services", icon: FaServicestack },
+  { name: "Projects", href: "#projects", icon: FaProjectDiagram },
+  { name: "Testimonials", href: "#testimonials", icon: FaLayerGroup },
+  { name: "Contact", href: "#contact", icon: FaBookmark },
 ];
-
-const NavLinks = () => {
+interface NavbarProps {
+  desktopClassName?: string;
+  navLinksForMobile?: string;
+}
+const NavLinks: React.FC<NavbarProps> = ({
+  desktopClassName,
+  navLinksForMobile,
+}) => {
   const pathname = usePathname();
 
   return (
     <>
-      {links.map((link) => (
-        <Link
-          key={link.name}
-          href={link.href}
-          className={clsx(
-            "[text-decoration:none] tracking-[0.03em] text-5xl font-nav-bar-text-21 px-[12px] cursor-pointer hover:text-blue-600 text-nowrap",
-            { "bg-sky-100 text-blue-600": pathname === link.href }
-          )}
-        >
-          {link.name}
-        </Link>
-      ))}
+      {links.map((link) => {
+        const NavLink = link.icon;
+        return (
+          <Link
+            key={link.name}
+            href={link.href}
+            className={
+              desktopClassName
+                ? clsx(desktopClassName, {
+                    "bg-sky-100 text-blue-600": pathname === link.href,
+                  })
+                : navLinksForMobile
+            }
+          >
+            <div className="flex gap-3">
+              {navLinksForMobile && <NavLink />}
+              {link.name}
+            </div>
+          </Link>
+        );
+      })}
     </>
   );
 };

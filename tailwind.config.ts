@@ -95,7 +95,23 @@ const config: Config = {
       sm: {
         max: "420px",
       },
+      desktop: "1280px",
+      // => @media (min-width: 1280px) { ... }
     },
+
+    // screens: {
+    //   mq450: {
+    //     raw: "screen and (max-width: 450px)",
+    //   },
+    //   tablet: "640px",
+    //   // => @media (min-width: 640px) { ... }
+
+    //   laptop: "1024px",
+    //   // => @media (min-width: 1024px) { ... }
+
+    //   desktop: "1280px",
+    //   // => @media (min-width: 1280px) { ... }
+    // },
   },
   corePlugins: {
     preflight: false,
