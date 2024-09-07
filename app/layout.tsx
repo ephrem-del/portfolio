@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className}flex flex-col items-center justify-center pt-[60px] px-[20%] space-y-[100px] bg-white`}
+        className={`${inter.className} flex flex-col items-center justify-center gap-[50px] pt-[12px] bg-white desktop:space-y-[120px] desktop:pt-[30px] `}
       >
         <Navbar />
         {children}
