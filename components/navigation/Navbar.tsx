@@ -7,18 +7,10 @@ import NavLinks from "./nav-links";
 import SideNav from "./side-navigation";
 
 const Navbar = () => {
-  const [nav, setNav] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const desktopClassName =
-    "[text-decoration:none] tracking-[0.03em] text-5xl font-nav-bar-text-21 px-[12px] cursor-pointer hover:text-blue-600 text-nowrap";
-
-  const mobileClassName =
-    "[text-decoration:none] tracking-[0.03em] text-lgi text-black font-nav-bar-text-21 px-[12px] cursor-pointer text-nowrap";
-
-  const handleNav = () => {
-    setNav(!nav);
-  };
+    "[text-decoration:none] tracking-[0.03em] text-5xl font-nav-bar-text-21 dark:text-white px-[12px] cursor-pointer hover:text-blue-600 text-nowrap";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,14 +26,14 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isScrolled]);
+  }, []);
 
   return (
     <header
       className={`${
         isScrolled
-          ? "w-full gap-[65px] flex items-center justify-center  bg-gainsboro-200  pt-3 pb-2 z-50 fixed top-0 transition ease-in-out duration-700 desktop:justify-center desktop:gap-0"
-          : "w-full flex flex-row items-center justify-center gap-[65px] desktop:gap-0 "
+          ? "w-full gap-[60px] flex items-center justify-center bg-gainsboro-200 dark:bg-gray-100 pt-3 pb-2 z-50 fixed top-0 transition ease-in-out duration-700 desktop:justify-center desktop:gap-0"
+          : "w-full flex flex-row items-center justify-center gap-[60px] dark:text-white tablet:gap-[30px] tablet:px-5 desktop:gap-0 desktop:px-0 "
       }`}
     >
       <div className="flex flex-col items-start justify-start">
@@ -60,7 +52,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <nav className="flex flex-col items-start justify-start mq450:hidden">
+      <nav className="hidden tablet:flex tablet:flex-col tablet:items-start tablet:justify-start">
         <nav className=" flex flex-row items-start justify-start">
           <div className="flex flex-row items-center justify-start cursor-pointer">
             <NavLinks desktopClassName={desktopClassName} />

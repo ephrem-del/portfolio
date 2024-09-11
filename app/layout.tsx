@@ -10,6 +10,16 @@ export const metadata: Metadata = {
   description: "Ephrem mekurias personal portfolio website",
 };
 
+const setThemeScript = `(function(){
+const theme = localStorage.theme;
+const prefersDarkMode = window.matchMedia('(prefers-color-scheme:dark)').matches;
+if(theme==='dark' || (!theme && prefersDarkMode)){
+document.documentElement.classList.add('dark')
+} else {
+ document.documentElement.classList.remove('dark')
+ }
+})();
+ `;
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -17,8 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: setThemeScript }} />
+      </head>
       <body
-        className={`${inter.className} flex flex-col items-center justify-center gap-[50px] pt-[12px] bg-white desktop:space-y-[120px] desktop:pt-[30px] `}
+        className={`${inter.className} flex flex-col items-center justify-center gap-[50px] pt-[12px]  bg-white dark:bg-bg-gray desktop:space-y-[120px] desktop:pt-[30px] `}
       >
         <Navbar />
         {children}
