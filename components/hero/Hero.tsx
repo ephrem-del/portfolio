@@ -6,14 +6,14 @@ import ToggleTheme from "../themeToggle/theme";
 const Hero = () => {
   return (
     <>
-      <div className="fixed flex items-center justify-center top-[7rem] left-[1rem] cursor-pointer desktop:top-[20rem] desktop:left-[10rem]">
+      <div className="fixed flex items-center justify-center top-[7rem] left-[1rem] cursor-pointer tablet:top-[20rem] tablet:left-[10rem]">
         <ToggleTheme />
       </div>
       <div
         id="hero"
-        className={`flex flex-col-reverse items-center justify-center px-[5%] gap-10 font-nav-bar-text-21 dark:text-white tablet:flex-row tablet:gap-[140px] desktop:px-[20%]`}
+        className={`flex flex-col-reverse items-center justify-center px-[5%] gap-10 font-nav-bar-text-21 dark:text-white tablet:flex-row tablet:gap-[140px] tablet:px-[10%] desktop:px-[20%]`}
       >
-        <div className="w-full flex flex-col desktop:min-w-[450px] ">
+        <div className="w-full flex flex-col tablet:min-w-[450px] ">
           <div className="flex flex-col desktop:gap-[40px] desktop:max-w-full ">
             <div className=" flex flex-col items-start justify-start gap-1.5 desktop:max-w-full desktop:self-stretch">
               <div className="flex flex-row items-start justify-start desktop:px-[7px] ">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/navigation/Navbar";
+import FooterSection from "../components/footer-section/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,10 +32,11 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: setThemeScript }} />
       </head>
       <body
-        className={`${inter.className} flex flex-col items-center justify-center gap-[50px] pt-[12px]  bg-white dark:bg-bg-gray desktop:space-y-[120px] desktop:pt-[30px] `}
+        className={`${inter.className} flex flex-col items-center justify-center gap-[50px] py-[12px]  bg-white dark:bg-bg-gray desktop:space-y-[120px] desktop:pt-[30px] `}
       >
         <Navbar />
         {children}
+        <FooterSection />
       </body>
     </html>
   );
