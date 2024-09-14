@@ -8,7 +8,7 @@ const AboutMe = () => {
     <div className="">
       <div
         id="about-me"
-        className={` flex flex-col items-center justify-center dark:text-white gap-[140px] px-[5%]  font-nav-bar-text-21 tablet:flex-row tablet:px-[20%]`}
+        className={` flex flex-col items-center justify-center dark:text-white tablet:gap-[100px] px-[5%] font-nav-bar-text-21 tablet:flex-row tablet:px-[10%] desktop:px-[20%]`}
       >
         <div className="hidden tablet:flex">
           <div className="h-[617.2px] w-[538px] relative">
@@ -19,7 +19,7 @@ const AboutMe = () => {
               alt="personal image"
               src="/group-7@2x.png"
             />
-            <div className="absolute top-[111px] left-[153px] bg-darkorange-200 w-[374px] h-[83px] z-[1]" />
+            <div className="absolute top-[100px] left-[100px] bg-darkorange-200 w-[374px] h-[83px] z-[1]" />
           </div>
         </div>
         <div className="flex flex-col justify-start pb-[42px] box-border tablet:min-w-[491px] ">

@@ -10,7 +10,7 @@ const services = [
     icon: FaCode,
   },
   {
-    title: "Mobile App Development",
+    title: "App Development",
     description: "Mobile app development for differnt Brand devices",
     icon: SiFlutter,
   },
@@ -30,7 +30,23 @@ const ServiceCard = () => {
   return (
     <>
       {services.map((service) => {
-        return <div key={""}></div>;
+        const ServiceIcon = service.icon;
+        return (
+          <div
+            key={""}
+            className="flex flex-col justify-start px-5 py-7 bg-gray-200 dark:bg-white text-black rounded-lg"
+          >
+            <div className="">
+              <ServiceIcon size={"3rem"} color="blue" />
+            </div>
+            <div className="">
+              <h1 className="text-lg font-bold">{service.title}</h1>
+            </div>
+            <div>
+              <p className="">{service.description}</p>
+            </div>
+          </div>
+        );
       })}
     </>
   );

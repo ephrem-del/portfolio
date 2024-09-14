@@ -90,7 +90,6 @@ const config: Config = {
       desktop: "1280px",
       // => @media (min-width: 1280px) { ... }
     },
-
   },
   corePlugins: {
     preflight: false,
