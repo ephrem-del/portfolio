@@ -1,7 +1,7 @@
 import React from "react";
-import SocialLinks from "./social-links";
 import Image from "next/image";
-import ToggleTheme from "../themeToggle/theme";
+import ToggleTheme from "../theme-toggle/theme";
+import SocialLinks from "./social-links";
 
 const Hero = () => {
   return (

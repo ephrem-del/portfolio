@@ -34,7 +34,7 @@ const AboutMe = () => {
               <div className="flex flex-col items-start justify-center gap-[15px] tablet:text-5xl">
                 {skills.map((skill) => (
                   <div
-                    key={""}
+                    key={skill}
                     className="flex flex-col gap-2 tablet:gap-[5px]"
                   >
                     <div className=" font-semibold inline-block min-w-[35px]">

@@ -1,5 +1,4 @@
 "use client";
-
 import React, { FormEvent, useRef } from "react";
 import emailjs from "@emailjs/browser";
 
@@ -9,10 +8,14 @@ const ContactSection = () => {
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const serviceId = process.env.NEXT_PUBLIC_YOUR_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_YOUR_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_YOUR_PUBLIC_KEY;
+
     if (form.current) {
       emailjs
-        .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form.current, {
-          publicKey: "YOUR_PUBLIC_KEY",
+        .sendForm(serviceId, templateId, form.current, {
+          publicKey: publicKey,
         })
         .then(
           () => {
@@ -29,10 +32,10 @@ const ContactSection = () => {
     <section
       id="contact"
       onSubmit={sendEmail}
-      className=" flex flex-col items-center justify-center text-white"
+      className="w-full flex flex-col items-center justify-center dark:text-white"
     >
       <div>
-        <h1 className="text-33xl">{`Let's Design Together`}</h1>
+        <h1 className="text-xl tablet:text-33xl">{`Let's Design Together`}</h1>
       </div>
       <div className="flex items-center justify-center ">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
@@ -43,8 +46,8 @@ const ContactSection = () => {
           type="email"
           name="email"
           placeholder="Enter your email"
-          size={40}
-          className="text-lgi px-2 rounded-lg "
+          // size={40}
+          className="text-lgi px-2 w-[20ch] rounded-lg dark:bg-white bg-whitesmoke-200 tablet:w-[40ch]"
         />
         <button
           type="submit"

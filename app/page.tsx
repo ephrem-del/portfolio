@@ -1,7 +1,7 @@
 import Services from "../components/services/services";
 import AboutMe from "../components/aboutMe/AboutMe";
 import Hero from "../components/hero/Hero";
-import ContactSection from "@/components/contact-section/contact";
+import ContactSection from "../components/contact-section/contact";
 
 export default function Home() {
   return (

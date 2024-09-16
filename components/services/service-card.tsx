@@ -5,21 +5,25 @@ import { SiFlutter } from "react-icons/si";
 
 const services = [
   {
+    id: 1,
     title: "Web Development",
     description: "Responsive and scalable full stack web development",
     icon: FaCode,
   },
   {
+    id: 2,
     title: "App Development",
     description: "Mobile app development for differnt Brand devices",
     icon: SiFlutter,
   },
   {
+    id: 3,
     title: "Software Developer ",
     description: "Responsive and scalable full stack web development",
     icon: LiaConnectdevelop,
   },
   {
+    id: 4,
     title: "Web Development",
     description: "Responsive and scalable full stack web development",
     icon: FaCode,
@@ -33,8 +37,8 @@ const ServiceCard = () => {
         const ServiceIcon = service.icon;
         return (
           <div
-            key={""}
-            className="flex flex-col justify-start px-5 py-7 bg-gray-200 dark:bg-white text-black rounded-lg"
+            key={service.id}
+            className="flex flex-col justify-start px-5 py-7 bg-whitesmoke-200 dark:bg-white text-black rounded-lg"
           >
             <div className="">
               <ServiceIcon size={"3rem"} color="blue" />
