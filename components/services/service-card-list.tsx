@@ -30,9 +30,9 @@ const services = [
   },
 ];
 
-const ServiceCard = () => {
+const ServiceCardList = () => {
   return (
-    <>
+    <div className="flex flex-col gap-3 tablet:flex-row">
       {services.map((service) => {
         const ServiceIcon = service.icon;
         return (
@@ -52,8 +52,8 @@ const ServiceCard = () => {
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 
-export default ServiceCard;
+export default ServiceCardList;

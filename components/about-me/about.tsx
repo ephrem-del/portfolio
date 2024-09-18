@@ -14,7 +14,6 @@ const AboutMe = () => {
           <div className="h-[617.2px] w-[538px] relative">
             <Image
               className="w-full h-full object-cover"
-              loading="lazy"
               fill
               alt="personal image"
               src="/group-7@2x.png"

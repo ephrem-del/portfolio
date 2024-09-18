@@ -35,7 +35,7 @@ const ContactSection = () => {
       className="w-full flex flex-col items-center justify-center dark:text-white"
     >
       <div>
-        <h1 className="text-xl tablet:text-33xl">{`Let's Design Together`}</h1>
+        <h1 className="text-xl tablet:text-33xl">Let's Work Together</h1>
       </div>
       <div className="flex items-center justify-center ">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro

@@ -1,4 +1,4 @@
-import ServiceCard from "./service-card";
+import ServiceCardList from "./service-card-list";
 
 const Services = () => {
   return (
@@ -12,9 +12,7 @@ const Services = () => {
         a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
-      <div className="flex flex-col gap-3 tablet:flex-row">
-        <ServiceCard />
-      </div>
+      <ServiceCardList />
     </section>
   );
 };
