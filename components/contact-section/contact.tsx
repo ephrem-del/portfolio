@@ -32,7 +32,7 @@ const ContactSection = () => {
     <section
       id="contact"
       onSubmit={sendEmail}
-      className="w-full flex flex-col items-center justify-center dark:text-white"
+      className="px-[5%] flex flex-col items-center justify-center dark:text-white"
     >
       <div>
         <h1 className="text-xl tablet:text-33xl">Let's Work Together</h1>
@@ -41,17 +41,16 @@ const ContactSection = () => {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
         voluptates, labore nisi
       </div>
-      <form ref={form} className="flex gap-3 pt-10">
+      <form ref={form} className=" flex gap-3 pt-10">
         <input
           type="email"
           name="email"
           placeholder="Enter your email"
-          // size={40}
-          className="text-lgi px-2 w-[20ch] rounded-lg dark:bg-white bg-whitesmoke-200 tablet:w-[40ch]"
+          className="text-mid px-2 w-[20ch] rounded-lg dark:bg-white bg-whitesmoke-200 tablet:w-[40ch] tablet:text-2xl"
         />
         <button
           type="submit"
-          className="text-mid text-white bg-orangered p-4 rounded-xl text-nowrap cursor-pointer"
+          className="text-xl text-white bg-orangered p-4 rounded-xl text-nowrap cursor-pointer tablet:text-mid"
         >
           Contact Me
         </button>

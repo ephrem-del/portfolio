@@ -32,7 +32,7 @@ const Hero = () => {
               </div>
             </div>
             <div className="flex flex-col items-start justify-start gap-[27px] max-w-full text-justify">
-              <div className="self-stretch text-mid desktop:text-2xl">
+              <div className="tablet:text-2xl">
                 Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa
                 nibh lectus netus in. Aliquet donec morbi convallis pretium.
                 Turpis tempus pharetra

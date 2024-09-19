@@ -24,8 +24,8 @@ const AboutMe = () => {
         <div className="flex flex-col justify-start pb-[42px] box-border tablet:min-w-[491px] ">
           <div className=" flex flex-col gap-[15px] max-w-full">
             <h1 className="m-0 relative font-semibold font-[inherit] inline-block max-w-full tablet:text-46xl ">{`About Me `}</h1>
-            <div className="flex flex-col items-start justify-start gap-5 text-2xl">
-              <div className=" tracking-[0.03em] mq450:text-mid">
+            <div className="flex flex-col items-start justify-start gap-5">
+              <div className="tablet:text-2xl">
                 Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa
                 nibh lectus netus in. Aliquet donec morbi convallis pretium.
                 Turpis tempus pharetra

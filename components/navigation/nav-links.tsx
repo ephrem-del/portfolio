@@ -46,7 +46,7 @@ const NavLinks: React.FC<NavbarProps> = ({
                 : navLinksForMobile
             }
           >
-            <div className="flex gap-3">
+            <div className="flex items-center gap-3">
               {navLinksForMobile && <NavLink />}
               {link.name}
             </div>
