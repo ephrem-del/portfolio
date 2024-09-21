@@ -5,7 +5,7 @@ import NavLinks from "../navigation/nav-links";
 import SocialLinks from "../hero/social-links";
 
 const desktopClassName =
-  "[text-decoration:none] text-3xl font-nav-bar-text-21 dark:text-white px-[10px] cursor-pointer hover:text-blue-600 text-nowrap";
+  "[text-decoration:none] text-2xl font-poppins dark:text-white px-[10px] cursor-pointer hover:text-blue-600 text-nowrap";
 
 const FooterSection = () => {
   return (
@@ -18,7 +18,7 @@ const FooterSection = () => {
             className="h-[40px] w-[40px] desktop:w-[70px] desktop:h-[70px]"
           />
           <div className="flex-1 flex flex-col items-start justify-start">
-            <a className="[text-decoration:none] text-xl inline-block whitespace-nowrap desktop:text-19xl">
+            <a className="[text-decoration:none] text-xl inline-block whitespace-nowrap desktop:text-4xl">
               <b>E</b>
               <span>{`phrem `}</span>
             </a>
@@ -34,7 +34,7 @@ const FooterSection = () => {
         <SocialLinks />
       </div>
 
-      <div className="w-full flex justify-center gap-2 py-2 bg-dimgray text-xl text-white font-nav-bar-text-21">
+      <div className="w-full flex justify-center gap-2 py-2 bg-dimgray text-xl text-white font-poppins">
         <span>{`© 2023 `}</span>
         <b className="text-darkorange-100">{"Ephrem "}</b>
         <span>All Rights Reserved , Inc.</span>

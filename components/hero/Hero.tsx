@@ -11,7 +11,7 @@ const Hero = () => {
       </div>
       <div
         id="hero"
-        className={`flex flex-col-reverse items-center justify-center px-[5%] gap-10 font-nav-bar-text-21 dark:text-white tablet:flex-row tablet:gap-[140px] tablet:px-[10%] desktop:px-[20%]`}
+        className={`flex flex-col-reverse items-center justify-center px-[5%] gap-10 font- dark:text-white tablet:flex-row tablet:gap-[140px] tablet:px-[10%] desktop:px-[20%]`}
       >
         <div className="w-full flex flex-col tablet:min-w-[450px] ">
           <div className="flex flex-col desktop:gap-[40px] desktop:max-w-full ">
@@ -19,11 +19,11 @@ const Hero = () => {
               <div className="flex flex-row items-start justify-start desktop:px-[7px] ">
                 <div className="tracking-[0.03em] font-semibold inline-block  desktop:min-w-[90px]">{`Hi I am `}</div>
               </div>
-              <div className="flex flex-col items-start justify-start max-w-full desktop:text-13xl">
+              <div className="flex flex-col items-start justify-start max-w-full desktop:text-3xl">
                 <div className="flex flex-row items-start justify-start box-border max-w-full">
-                  <h3 className="m-0 tracking-[0.03em] font-semibold font-[inherit]  text-darkorange-100 ">{`Ephrem Mekuria `}</h3>
+                  <h3 className="m-0 tracking-[0.03em] font-semibold font-[inherit]  text-darkorange-100">{`Ephrem Mekuria `}</h3>
                 </div>
-                <div className="flex items-start justify-start gap-2 desktop:mt-[-13px] desktop:text-81xl desktop:flex-col">
+                <div className="flex items-start justify-start gap-2 desktop:mt-[-13px] desktop:text-5xl desktop:flex-col">
                   <h1 className="text-inherit tracking-[0.03em] font-bold font-[inherit] desktop:inline-block desktop:max-w-full desktop:w-[500px] desktop:m-0">{`Flutter`}</h1>
                   <div className=" flex flex-row justify-end desktop:mt-[-25px] desktop:self-stretch">
                     <h1 className="text-inherit tracking-[0.03em] font-bold font-[inherit] desktop:m-0 ">{`Developer `}</h1>
@@ -32,12 +32,12 @@ const Hero = () => {
               </div>
             </div>
             <div className="flex flex-col items-start justify-start gap-[27px] max-w-full text-justify">
-              <div className="tablet:text-2xl">
+              <div className="tablet:text-xl">
                 Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa
                 nibh lectus netus in. Aliquet donec morbi convallis pretium.
                 Turpis tempus pharetra
               </div>
-              <button className=" bg-orange-400 rounded text-lgi px-[1rem] py-[.5rem] text-white desktop:text-19xl ">
+              <button className=" bg-orange-400 rounded text-lg px-[1rem] py-[.5rem] text-white desktop:text-4xl ">
                 hire me
               </button>
             </div>

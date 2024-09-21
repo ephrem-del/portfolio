@@ -2,6 +2,8 @@ import React from "react";
 import { FaCode } from "react-icons/fa";
 import { LiaConnectdevelop } from "react-icons/lia";
 import { SiFlutter } from "react-icons/si";
+import useFirestoreData from "../lib/firebase-crud/read-data";
+import Services from "./services";
 
 const services = [
   {
@@ -30,6 +32,17 @@ const services = [
   },
 ];
 
+// interface ServiceType {
+//   id: string;
+//   title: string;
+//   description: string;
+//   icon: React.ElementType;
+// }
+
+// interface ServiceProps {
+//   services: ServiceType[];
+// }
+
 const ServiceCardList = () => {
   return (
     <div className="flex flex-col gap-3 tablet:flex-row">
@@ -40,15 +53,9 @@ const ServiceCardList = () => {
             key={service.id}
             className="flex flex-col justify-start px-5 py-7 bg-whitesmoke-200 dark:bg-white text-black rounded-lg"
           >
-            <div className="">
-              <ServiceIcon size={"3rem"} color="blue" />
-            </div>
-            <div className="">
-              <h1 className="text-lg font-bold">{service.title}</h1>
-            </div>
-            <div>
-              <p className="">{service.description}</p>
-            </div>
+            <ServiceIcon size={"3rem"} color="blue" />
+            <h1 className="text-lg font-bold">{service.title}</h1>
+            <p className="">{service.description}</p>
           </div>
         );
       })}
