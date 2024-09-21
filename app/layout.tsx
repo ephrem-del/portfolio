@@ -32,7 +32,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: setThemeScript }} />
       </head>
       <body
-        className={`${inter.className} flex flex-col items-center justify-center gap-[50px] py-[12px]  bg-white dark:bg-bg-gray desktop:space-y-[120px] desktop:pt-[30px] `}
+        className={`${inter.className} flex flex-col items-center justify-center gap-[50px] py-[12px]  bg-white dark:bg-main desktop:space-y-[120px] desktop:pt-[30px] `}
       >
         <Navbar />
         {children}

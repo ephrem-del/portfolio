@@ -34,9 +34,7 @@ const ContactSection = () => {
       onSubmit={sendEmail}
       className="px-[5%] flex flex-col items-center justify-center dark:text-white"
     >
-      <div>
-        <h1 className="text-xl tablet:text-33xl">Let's Work Together</h1>
-      </div>
+      <h1 className="text-xl tablet:text-5xl">Let's Work Together</h1>
       <div className="flex items-center justify-center ">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
         voluptates, labore nisi
@@ -46,11 +44,11 @@ const ContactSection = () => {
           type="email"
           name="email"
           placeholder="Enter your email"
-          className="text-mid px-2 w-[20ch] rounded-lg dark:bg-white bg-whitesmoke-200 tablet:w-[40ch] tablet:text-2xl"
+          className="text-md px-2 w-[20ch] rounded-lg dark:bg-white bg-whitesmoke-200 tablet:w-[40ch] tablet:text-xl"
         />
         <button
           type="submit"
-          className="text-xl text-white bg-orangered p-4 rounded-xl text-nowrap cursor-pointer tablet:text-mid"
+          className="text-xl text-white bg-orangered p-4 rounded-xl text-nowrap cursor-pointer tablet:text-md"
         >
           Contact Me
         </button>

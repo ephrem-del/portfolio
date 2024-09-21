@@ -14,7 +14,7 @@ const SideNav = () => {
   };
 
   const mobileClassName =
-    "[text-decoration:none] tracking-[0.03em] text-lgi text-black font-nav-bar-text-21 px-[12px] cursor-pointer text-nowrap";
+    "[text-decoration:none] tracking-[0.03em] text-lg text-black font-poppins px-[12px] cursor-pointer text-nowrap";
 
   return (
     <div onClick={handleNav} className="flex z-20 tablet:hidden">
@@ -53,7 +53,7 @@ const SideNav = () => {
             </div>
           </div>
           <div className="flex flex-col items-center pt-20">
-            <p className="text-lgi font-bold"> Lets connect</p>
+            <p className="text-lg font-bold"> Lets connect</p>
             <div className="flex items-center justify-center text-[10px]">
               <div className="rounded-full cursor-pointer">
                 <SocialLinks />

@@ -5,10 +5,10 @@ const skills = ["Flutter", "React", "Next", "Node", "Express"];
 
 const AboutMe = () => {
   return (
-    <div className="">
+    <div>
       <div
         id="about-me"
-        className={` flex flex-col items-center justify-center dark:text-white tablet:gap-[100px] px-[5%] font-nav-bar-text-21 tablet:flex-row tablet:px-[10%] desktop:px-[20%]`}
+        className={` flex flex-col items-center justify-center dark:text-white tablet:gap-[100px] px-[5%] font-poppins tablet:flex-row tablet:px-[10%] desktop:px-[20%]`}
       >
         <div className="hidden tablet:flex">
           <div className="h-[617.2px] w-[538px] relative">
@@ -18,19 +18,23 @@ const AboutMe = () => {
               alt="personal image"
               src="/group-7@2x.png"
             />
-            <div className="absolute top-[100px] left-[100px] bg-darkorange-200 w-[374px] h-[83px] z-[1]" />
+            <div className="absolute top-[80px] left-[85px] bg-darkorange-200 w-[374px] h-[83px] z-[1]" />
           </div>
         </div>
         <div className="flex flex-col justify-start pb-[42px] box-border tablet:min-w-[491px] ">
           <div className=" flex flex-col gap-[15px] max-w-full">
-            <h1 className="m-0 relative font-semibold font-[inherit] inline-block max-w-full tablet:text-46xl ">{`About Me `}</h1>
+            <h1 className="m-0 relative font-semibold font-[inherit] inline-block max-w-full tablet:text-6xl ">
+              About Me
+            </h1>
             <div className="flex flex-col items-start justify-start gap-5">
-              <div className="tablet:text-2xl">
-                Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa
-                nibh lectus netus in. Aliquet donec morbi convallis pretium.
-                Turpis tempus pharetra
+              <div className="tablet:text-xl">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur. Tristique amet sed
+                  massa nibh lectus netus in. Aliquet donec morbi convallis
+                  pretium. Turpis tempus pharetra
+                </p>
               </div>
-              <div className="flex flex-col items-start justify-center gap-[15px] tablet:text-5xl">
+              <div className="flex flex-col items-start justify-center gap-[15px] tablet:text-2xl">
                 {skills.map((skill) => (
                   <div
                     key={skill}

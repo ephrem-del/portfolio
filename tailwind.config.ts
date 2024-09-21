@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "bg-gray": "#1e1e1e",
+        main: "#1e1e1e",
         gray: {
           "100": "#7a7a7a",
           "200": "#797979",
@@ -19,7 +19,7 @@ const config: Config = {
         white: "#fff",
         darkorange: {
           "100": "#fd6f00",
-          "200": "rgba(253, 111, 0, 0.6)",
+          "200": "#fd6f0099",
         },
         orangered: "#e35700",
         whitesmoke: {
@@ -39,56 +39,29 @@ const config: Config = {
       },
       spacing: {},
       fontFamily: {
-        "nav-bar-text-21": "Poppins",
+        poppins: "Poppins",
         montserrat: "Montserrat",
       },
       borderRadius: {
         sm: "14px",
-        "8xs": "5px",
+        xs: "5px",
       },
     },
     fontSize: {
-      "2xl": "21px",
-      mid: "17px",
-      "29xl": "48px",
-      "19xl": "38px",
-      "10xl": "29px",
-      "5xl": "24px",
-      "46xl": "65px",
-      "33xl": "52px",
-      "20xl": "39px",
-      lgi: "19px",
-      "13xl": "32px",
-      "7xl": "26px",
-      "81xl": "100px",
-      "31xl": "50px",
-      "11xl": "30px",
-      inherit: "inherit",
+      md: "17px",
+      lg: "19px",
+      xl: "21px",
+      "2xl": "24px",
+      "3xl": "32px",
+      "4xl": "38px",
+      "5xl": "52px",
+      "6xl": "65px",
+      "7xl": "100px",
     },
     screens: {
-      mq1875: {
-        raw: "screen and (max-width: 1875px)",
-      },
-      mq1400: {
-        raw: "screen and (max-width: 1400px)",
-      },
-      mq925: {
-        raw: "screen and (max-width: 925px)",
-      },
-      mq450: {
-        raw: "screen and (max-width: 450px)",
-      },
-      sm: {
-        max: "420px",
-      },
       tablet: "640px",
-      // => @media (min-width: 640px) { ... }
-
       laptop: "1024px",
-      // => @media (min-width: 1024px) { ... }
-
       desktop: "1280px",
-      // => @media (min-width: 1280px) { ... }
     },
   },
   corePlugins: {

@@ -10,7 +10,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const desktopClassName =
-    "[text-decoration:none] tracking-[0.03em] text-5xl font-nav-bar-text-21 dark:text-white px-[12px] cursor-pointer hover:text-blue-600 text-nowrap";
+    "[text-decoration:none] tracking-[0.03em] text-2xl font-poppins dark:text-white px-[12px] cursor-pointer hover:text-blue-600 text-nowrap";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +45,7 @@ const Navbar = () => {
             className="h-[40px] w-[40px] desktop:w-[70px] desktop:h-[70px]"
           />
           <div className="flex-1 flex flex-col items-start justify-start">
-            <a className="[text-decoration:none] text-xl inline-block whitespace-nowrap desktop:text-19xl">
+            <a className="[text-decoration:none] text-xl inline-block whitespace-nowrap desktop:text-4xl">
               <b>E</b>
               <span>{`phrem `}</span>
             </a>
@@ -60,7 +60,7 @@ const Navbar = () => {
         </nav>
       </nav>
       <div className="flex flex-col items-start justify-start  bg-darkorange-100 rounded-8xs desktop:ml-4">
-        <button className="cursor-pointer [border:none] px-[4px] py-1  rounded-8xs bg-darkorange-100 flex flex-row items-start justify-start whitespace-nowrap hover:bg-orangered desktop:p-[14px] desktop:text-mid">
+        <button className="cursor-pointer [border:none] px-[4px] py-1  rounded-8xs bg-darkorange-100 flex flex-row items-start justify-start whitespace-nowrap hover:bg-orangered desktop:p-[14px] desktop:text-md">
           <Link
             href={""}
             className="[text-decoration:none] relative text-xl tracking-[0.03em] text-white inline-block z-[1]"
