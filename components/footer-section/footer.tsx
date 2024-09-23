@@ -34,7 +34,7 @@ const FooterSection = () => {
         <SocialLinks />
       </div>
 
-      <div className="w-full flex justify-center gap-2 py-2 bg-dimgray text-xl text-white font-poppins">
+      <div className="w-full flex justify-center gap-2 py-2 bg-dimgray text-md text-white font-poppins">
         <span>{`© 2023 `}</span>
         <b className="text-darkorange-100">{"Ephrem "}</b>
         <span>All Rights Reserved , Inc.</span>

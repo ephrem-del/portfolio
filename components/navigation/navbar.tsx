@@ -32,8 +32,8 @@ const Navbar = () => {
     <header
       className={`${
         isScrolled
-          ? "w-full gap-[60px] flex items-center justify-center bg-gainsboro-200 dark:bg-gray-100 pt-3 pb-2 z-50 fixed top-0 transition ease-in-out duration-700 desktop:justify-center desktop:gap-0"
-          : "w-full flex flex-row items-center justify-center gap-[60px] dark:text-white tablet:gap-[30px] tablet:px-5 desktop:gap-0 desktop:px-0 "
+          ? "w-full gap-[50px] flex items-center justify-center bg-gainsboro-200 dark:bg-gray-100 pt-3 pb-2 z-50 fixed top-0 transition ease-in-out duration-700 desktop:justify-center desktop:gap-0"
+          : "flex items-center justify-center dark:text-white tablet:gap-[30px] tablet:px-5 desktop:gap-0 desktop:px-0 "
       }`}
     >
       <div className="flex flex-col items-start justify-start">
@@ -63,7 +63,7 @@ const Navbar = () => {
         <button className="cursor-pointer [border:none] px-[4px] py-1  rounded-8xs bg-darkorange-100 flex flex-row items-start justify-start whitespace-nowrap hover:bg-orangered desktop:p-[14px] desktop:text-md">
           <Link
             href={""}
-            className="[text-decoration:none] relative text-xl tracking-[0.03em] text-white inline-block z-[1]"
+            className="[text-decoration:none] relative text-md tracking-[0.03em] text-white inline-block z-[1]"
           >
             Downlaod CV
           </Link>
