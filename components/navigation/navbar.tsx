@@ -53,8 +53,8 @@ const Navbar = () => {
         </div>
       </div>
       <nav className="hidden tablet:flex tablet:flex-col tablet:items-start tablet:justify-start">
-        <nav className=" flex flex-row items-start justify-start">
-          <div className="flex flex-row items-center justify-start cursor-pointer">
+        <nav className=" flex items-start justify-start">
+          <div className="flex items-center justify-start cursor-pointer">
             <NavLinks desktopClassName={desktopClassName} />
           </div>
         </nav>
