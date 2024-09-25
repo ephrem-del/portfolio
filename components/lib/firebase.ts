@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import {  getFirestore } from "firebase/firestore";
 
-// TODO: Replace the following with your app's Firebase project configuration
+
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -16,11 +16,6 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-// const colRef = collection(db, "services");
-
-// getDocs(colRef).then((snapshot) => {
-//   console.log(snapshot.docs);
-// });
 export { db };
 
 export default app;

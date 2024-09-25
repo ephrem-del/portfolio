@@ -1,53 +1,12 @@
-import React from "react";
-import { FaCode } from "react-icons/fa";
-import { LiaConnectdevelop } from "react-icons/lia";
-import { SiFlutter } from "react-icons/si";
-import useFirestoreData from "../lib/firebase-crud/read-data";
-import Services from "./services";
 
-const services = [
-  {
-    id: 1,
-    title: "Web Development",
-    description: "Responsive and scalable full stack web development",
-    icon: FaCode,
-  },
-  {
-    id: 2,
-    title: "App Development",
-    description: "Mobile app development for differnt Brand devices",
-    icon: SiFlutter,
-  },
-  {
-    id: 3,
-    title: "Software Developer ",
-    description: "Responsive and scalable full stack web development",
-    icon: LiaConnectdevelop,
-  },
-  {
-    id: 4,
-    title: "Web Development",
-    description: "Responsive and scalable full stack web development",
-    icon: FaCode,
-  },
-];
+import * as DiIcons from "react-icons/di";
 
-// interface ServiceType {
-//   id: string;
-//   title: string;
-//   description: string;
-//   icon: React.ElementType;
-// }
-
-// interface ServiceProps {
-//   services: ServiceType[];
-// }
-
-const ServiceCardList = () => {
+const ServiceCardList = ({ serviceData }) => {
   return (
     <div className="flex flex-col gap-3 tablet:flex-row">
-      {services.map((service) => {
-        const ServiceIcon = service.icon;
+      {serviceData.map((service: any) => {
+        const ServiceIcon = DiIcons[service.icon];
+
         return (
           <div
             key={service.id}
