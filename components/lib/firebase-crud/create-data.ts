@@ -6,42 +6,22 @@ const collectionsData = {
     {
       title: "Web Development",
       description: "Responsive and scalable full stack web development",
-      icon: "FaCode",
+      icon: "DiJsBadge",
     },
     {
       title: "App Development",
       description: "Mobile app development for different Brand devices",
-      icon: "SiFlutter",
+      icon: "DiReact",
     },
     {
       title: "Software Developer ",
       description: "Responsive and scalable full stack web development",
-      icon: "LiaConnectdevelop",
+      icon: "DiCodeBadge",
     },
     {
       title: "Web Development",
       description: "Responsive and scalable full stack web development",
-      icon: "FaCode",
-    },
-  ],
-  users: [
-    {
-      name: "John Doe",
-      email: "john@example.com",
-    },
-    {
-      name: "Jane Smith",
-      email: "jane@example.com",
-    },
-  ],
-  products: [
-    {
-      productName: "Laptop",
-      price: 999,
-    },
-    {
-      productName: "Smartphone",
-      price: 699,
+      icon: "DiJsBadge",
     },
   ],
 };

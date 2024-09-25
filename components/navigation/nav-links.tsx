@@ -41,7 +41,7 @@ const NavLinks: React.FC<NavbarProps> = ({
             className={
               desktopClassName
                 ? clsx(desktopClassName, {
-                    " text-blue-600": pathname === link.href,
+                    "text-blue-600": pathname === link.href,
                   })
                 : navLinksForMobile
             }
