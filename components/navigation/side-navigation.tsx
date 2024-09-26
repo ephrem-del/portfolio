@@ -31,7 +31,7 @@ const SideNav = () => {
         <div
           className={
             nav
-              ? "fixed left-0 top-0 w-[65%] h-screen bg-slate-300 px-5 py-3"
+              ? "fixed left-0 top-0 w-[65%] h-screen bg-slate-300 px-5 py-3 transition ease-in-out duration-1000"
               : "fixed left-[-100%] top-0 "
           }
         >
