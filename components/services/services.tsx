@@ -1,14 +1,6 @@
-import { collection, getDocs } from "firebase/firestore";
 import ServiceCardList from "./service-card-list";
-import { db } from "../lib/firebase";
 
 const Services = async () => {
-  const querySnapshot = await getDocs(collection(db, "services"));
-  const serviceData = querySnapshot.docs.map((doc) => ({
-    ...doc.data(),
-    id: doc.id,
-  }));
-  console.log(serviceData);
   return (
     <section
       id="services"
@@ -20,7 +12,7 @@ const Services = async () => {
         a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
-      <ServiceCardList serviceData={serviceData} />
+      <ServiceCardList />
     </section>
   );
 };
