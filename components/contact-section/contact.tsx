@@ -34,7 +34,7 @@ const ContactSection = () => {
       onSubmit={sendEmail}
       className="px-[5%] flex flex-col items-center justify-center dark:text-white"
     >
-      <h1 className="text-xl tablet:text-5xl">Let's Work Together</h1>
+      <h1 className="text-2xl tablet:text-5xl">Let's Work Together</h1>
       <div className="flex items-center justify-center ">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
         voluptates, labore nisi
