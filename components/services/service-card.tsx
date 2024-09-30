@@ -1,6 +1,16 @@
 import * as DiIcons from "react-icons/di";
 
-const ServiceCard = ({ title, description, icon }) => {
+interface ServiceCardProps {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({
+  title,
+  description,
+  icon,
+}) => {
   const ServiceIcon = DiIcons[icon];
 
   return (

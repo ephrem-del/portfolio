@@ -23,17 +23,16 @@ const SideNav = () => {
       </div>
       <div
         className={
-          nav
-            ? "fixed flex justify-center items-center left-0 top-0 w-full h-screen bg-black/70"
-            : ""
+          nav &&
+          "fixed flex justify-center items-center left-0 top-0 w-full h-screen bg-black/70"
         }
       >
         <div
-          className={
+          className={`fixed left-0 ${
             nav
-              ? "fixed left-0 top-0 w-[65%] h-screen bg-slate-300 px-5 py-3 transition ease-in-out duration-1000"
-              : "fixed left-[-100%] top-0 "
-          }
+              ? "w-[65%] h-screen bg-slate-300 px-5 py-3 transition ease-in-out duration-1000"
+              : "left-[-100%]"
+          }`}
         >
           <div className="flex w-full items-center justify-between">
             <Image src={logo} height={50} width={50} alt="logo" />
