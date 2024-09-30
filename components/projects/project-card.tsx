@@ -1,7 +1,17 @@
 import Image from "next/image";
 import React from "react";
 
-const ProjectCard = ({ imageUrl, title, description }) => {
+interface ProjectCardProps {
+  imageUrl: string;
+  title: string;
+  description: string;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  imageUrl,
+  title,
+  description,
+}) => {
   return (
     <div className="flex flex-col justify-start text-black rounded-lg">
       <Image
