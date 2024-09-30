@@ -47,7 +47,6 @@ const Hero = () => {
           <div className="h-[300px] w-[250px] relative max-w-full desktop:min-w-[538px] desktop:h-[620px] desktop:w-[540px]  ">
             <Image
               className="object-cover"
-              loading="lazy"
               fill
               alt="personal image"
               src="/group-2@2x.png"
