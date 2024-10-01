@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={` w-full flex items-center justify-center desktop:gap-0  gap-[50px] ${
+      className={` w-full flex items-center justify-center desktop:gap-0 gap-[50px] ${
         isScrolled
           ? " bg-gainsboro-200 dark:bg-gray-100 pt-3 pb-2 z-50 fixed top-0 transition ease-in-out duration-700 "
           : " dark:text-white tablet:gap-[30px] tablet:px-5 desktop:px-0 "
