@@ -14,7 +14,7 @@ const TestimonialCard: React.FC<TestimonialsCardProps> = ({
   imageUrl,
 }) => {
   return (
-    <div className="flex flex-col items-start justify-center gap-[1rem] p-5 bg-whitesmoke-200 dark:bg-white rounded-lg tablet:flex-row">
+    <div className="flex flex-col items-start justify-center gap-5 p-5 bg-whitesmoke-200 dark:bg-white rounded-lg tablet:flex-row">
       <div className="flex items-center gap-5 ">
         <Image
           src={imageUrl}
@@ -29,14 +29,11 @@ const TestimonialCard: React.FC<TestimonialsCardProps> = ({
 
       <div className="flex flex-col items-center justify-center tablet:items-start">
         <p className="text-black m-0 text-sm">
-          <span className="text-4xl text-darkorange-100 ml-[-16px]">
+          <span className="text-3xl text-darkorange-100 ml-[-16px]">
             &ldquo;
           </span>
           {description}
-          <sub
-            className="text-3xl text-b text-darkorange-100 ml-2 relative "
-            style={{ top: "0.5em", marginLeft: "4px" }}
-          >
+          <sub className="text-2xl font-bold text-darkorange-100 ml-1 relative top-3">
             &rdquo;
           </sub>
         </p>
