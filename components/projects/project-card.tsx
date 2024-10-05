@@ -1,8 +1,8 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React from "react";
 
 interface ProjectCardProps {
-  imageUrl: string;
+  imageUrl: StaticImageData;
   title: string;
   description: string;
 }
