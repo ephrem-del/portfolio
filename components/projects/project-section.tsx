@@ -61,8 +61,9 @@ const ProjectSection = () => {
         ))}
       </div>
       <div className="flex flex-col gap-7 pt-[2rem] tablet:flex-row">
-        {filteredProjects.map((project) => (
+        {filteredProjects.map((project, index) => (
           <ProjectCard
+            key={index}
             imageUrl={project.imageUrl}
             title={project.title}
             description={project.description}

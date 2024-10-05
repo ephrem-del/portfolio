@@ -3,6 +3,7 @@ import ContactSection from "../components/contact-section/contact";
 import AboutMe from "../components/about-me/about";
 import ServiceSection from "../components/services/service-section";
 import ProjectSection from "../components/projects/project-section";
+import TestimonialsSection from "../components/testimonials/testimonial-section";
 
 export default async function Home() {
   return (
@@ -11,6 +12,7 @@ export default async function Home() {
       <AboutMe />
       <ServiceSection />
       <ProjectSection />
+      <TestimonialsSection />
       <ContactSection />
     </main>
   );
