@@ -24,6 +24,54 @@ const collectionsData = {
       icon: "DiJsBadge",
     },
   ],
+
+  projects: [
+    {
+      title: "web development",
+      imageUrl: projectImage,
+      description: "E-SIM selling web development",
+      skills: ["UI/UX", "React", "Tailwind CSS"],
+    },
+    {
+      title: "web devlopment",
+      imageUrl: projectImage,
+      description: "E-commerce site development",
+      skills: ["Next", "Firebase", "Tailwind CSS"],
+    },
+    {
+      title: "mobile app",
+      imageUrl: projectImage,
+      description: "Mobile app development",
+      skills: ["Flutter", "Dart", "Tailwind CSS"],
+    },
+  ],
+
+  testimonials: [
+    {
+      name: "Hakim",
+      title: "CTO",
+      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
+          a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
+          fugit eos similique quasi odio quo laudantium, minus sunt.`,
+      imageUrl: employeerImage,
+    },
+    {
+      name: "Hakim",
+      title: "CTO",
+      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
+          a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
+          fugit eos similique quasi odio quo laudantium, minus sunt.`,
+      imageUrl: employeerImage,
+    },
+    {
+      name: "Hakim",
+      title: "CTO",
+      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
+          a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
+          fugit eos similique quasi odio quo laudantium, minus sunt.`,
+      imageUrl: employeerImage,
+    },
+  ],
 };
 
 const addingData = async () => {
