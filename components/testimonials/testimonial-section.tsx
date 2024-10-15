@@ -8,36 +8,16 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Navigation, Pagination } from "swiper/modules";
 import TestimonialCard from "./testimonial-card";
-import employeerImage from "../../public/programming.jpg";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../lib/firebase";
 
-const testimonials = [
-  {
-    name: "Hakim",
-    title: "CTO",
-    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
-        a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
-        fugit eos similique quasi odio quo laudantium, minus sunt.`,
-    imageUrl: employeerImage,
-  },
-  {
-    name: "Hakim",
-    title: "CTO",
-    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
-        a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
-        fugit eos similique quasi odio quo laudantium, minus sunt.`,
-    imageUrl: employeerImage,
-  },
-  {
-    name: "Hakim",
-    title: "CTO",
-    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
-        a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
-        fugit eos similique quasi odio quo laudantium, minus sunt.`,
-    imageUrl: employeerImage,
-  },
-];
-
-const TestimonialsSection = () => {
+const TestimonialsSection = async () => {
+  const querySnapshot = await getDocs(collection(db, "testimonials"));
+  const testimonialsData = querySnapshot.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc.id,
+  }));
+  console.log("testimonials data", testimonialsData);
   return (
     <section
       id="testimonials"
@@ -73,9 +53,9 @@ const TestimonialsSection = () => {
           },
         }}
       >
-        {testimonials.map((testimonial, index) => {
+        {testimonialsData.map((testimonial: any) => {
           return (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={testimonial.id}>
               <TestimonialCard
                 name={testimonial.name}
                 title={testimonial.title}
