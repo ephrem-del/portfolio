@@ -1,39 +1,40 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProjectCard from "./project-card";
-import projectImage from "../../public/project.png";
-
-const projects = [
-  {
-    title: "web development",
-    imageUrl: projectImage,
-    description: "E-SIM selling web development",
-    skills: ["UI/UX", "React", "Tailwind CSS"],
-  },
-  {
-    title: "web devlopment",
-    imageUrl: projectImage,
-    description: "E-commerce site development",
-    skills: ["Next", "Firebase", "Tailwind CSS"],
-  },
-  {
-    title: "mobile app",
-    imageUrl: projectImage,
-    description: "Mobile app development",
-    skills: ["Flutter", "Dart", "Tailwind CSS"],
-  },
-];
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../lib/firebase";
 
 const skills = ["All", "Flutter", "Next"];
 
 const ProjectSection = () => {
   const [selectedSkill, setSelectedSkill] = useState("All");
+  const [projectsData, setProjectsData] = useState([]);
+  const [filteredProjects, setFilteredProjects] = useState([]);
 
-  const filteredProjects =
-    selectedSkill === "All"
-      ? projects
-      : projects.filter((project) => project.skills.includes(selectedSkill));
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const querySnapshot = await getDocs(collection(db, "projects"));
+      const projects = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setProjectsData(projects);
+    };
+
+    fetchProjects();
+  }, []);
+
+  useEffect(() => {
+    const filtered =
+      selectedSkill === "All"
+        ? projectsData
+        : projectsData.filter((project: any) =>
+            project.skills.includes(selectedSkill)
+          );
+    setFilteredProjects(filtered);
+  }, [selectedSkill, projectsData]);
+
   return (
     <section
       id="projects"
@@ -61,9 +62,9 @@ const ProjectSection = () => {
         ))}
       </div>
       <div className="flex flex-col gap-7 pt-[2rem] tablet:flex-row">
-        {filteredProjects.map((project, index) => (
+        {filteredProjects.map((project: any) => (
           <ProjectCard
-            key={index}
+            key={project.id}
             imageUrl={project.imageUrl}
             title={project.title}
             description={project.description}

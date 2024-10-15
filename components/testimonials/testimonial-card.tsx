@@ -19,6 +19,8 @@ const TestimonialCard: React.FC<TestimonialsCardProps> = ({
         <Image
           src={imageUrl}
           alt={`${name}'s profile`}
+          width={100}
+          height={100}
           className="rounded-full object-cover h-[100px] w-[100px] tablet:h-[150px] tablet:w-[150px]"
         />
         <div className=" tablet:hidden">

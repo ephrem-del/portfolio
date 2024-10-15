@@ -17,6 +17,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <Image
         alt="personal image"
         src={imageUrl}
+        width={320}
+        height={200}
         className="h-[200px] w-[320px] relative tablet:h-[400px] tablet:w-[350px]"
       />
       <h3 className="text-sm text-darkorange-100 pt-3">{title}</h3>
