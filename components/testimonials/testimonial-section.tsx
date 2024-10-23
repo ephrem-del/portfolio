@@ -8,25 +8,10 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Navigation, Pagination } from "swiper/modules";
 import TestimonialCard from "./testimonial-card";
-// import { collection, getDocs } from "firebase/firestore";
-// import { db } from "../lib/firebase";
 import useTestimonial from "../../hooks/useTestimonial";
 
 const TestimonialsSection = () => {
   const testimonialsData = useTestimonial();
-  // const [testimonialsData, setTestimonialsData] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const querySnapshot = await getDocs(collection(db, "testimonials"));
-  //     const testimonialsData = querySnapshot.docs.map((doc) => ({
-  //       ...doc.data(),
-  //       id: doc.id,
-  //     }));
-  //     setTestimonialsData(testimonialsData);
-  //   };
-  //   fetchData();
-  // }, []);
 
   return (
     <section
