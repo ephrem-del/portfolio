@@ -1,25 +1,12 @@
 "use client";
 
+import useProject from "../../hooks/useProject";
 import ProjectCard from "./project-card";
-import useProject from "./useProject";
-import { useEffect, useState } from "react";
 
 const skills = ["All", "Flutter", "Next"];
 
 const ProjectSection = () => {
-  const projectsData = useProject();
-  const [selectedSkill, setSelectedSkill] = useState("All");
-  const [filteredProjects, setFilteredProjects] = useState([]);
-
-  useEffect(() => {
-    const filtered =
-      selectedSkill === "All"
-        ? projectsData
-        : projectsData.filter((project: any) =>
-            project.skills.includes(selectedSkill)
-          );
-    setFilteredProjects(filtered);
-  }, [projectsData, selectedSkill]);
+  const { filteredProjects, selectedSkill, setSelectedSkill } = useProject();
 
   return (
     <section

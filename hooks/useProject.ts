@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../lib/firebase";
+import { db } from "../components/lib/firebase";
 
 export default function useProject() {
   const [projectsData, setProjectsData] = useState([]);
+  const [selectedSkill, setSelectedSkill] = useState("All");
+  const [filteredProjects, setFilteredProjects] = useState([]);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -23,5 +25,15 @@ export default function useProject() {
     fetchProjects();
   }, [projectsData]);
 
-  return projectsData;
+  useEffect(() => {
+    const filtered =
+      selectedSkill === "All"
+        ? projectsData
+        : projectsData.filter((project: any) =>
+            project.skills.includes(selectedSkill)
+          );
+    setFilteredProjects(filtered);
+  }, [projectsData, selectedSkill]);
+
+  return { filteredProjects, selectedSkill, setSelectedSkill };
 }

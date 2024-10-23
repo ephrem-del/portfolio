@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -8,23 +8,25 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Navigation, Pagination } from "swiper/modules";
 import TestimonialCard from "./testimonial-card";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../lib/firebase";
+// import { collection, getDocs } from "firebase/firestore";
+// import { db } from "../lib/firebase";
+import useTestimonial from "../../hooks/useTestimonial";
 
 const TestimonialsSection = () => {
-  const [testimonialsData, setTestimonialsData] = useState([]);
+  const testimonialsData = useTestimonial();
+  // const [testimonialsData, setTestimonialsData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const querySnapshot = await getDocs(collection(db, "testimonials"));
-      const testimonialsData = querySnapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setTestimonialsData(testimonialsData);
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const querySnapshot = await getDocs(collection(db, "testimonials"));
+  //     const testimonialsData = querySnapshot.docs.map((doc) => ({
+  //       ...doc.data(),
+  //       id: doc.id,
+  //     }));
+  //     setTestimonialsData(testimonialsData);
+  //   };
+  //   fetchData();
+  // }, []);
 
   return (
     <section
