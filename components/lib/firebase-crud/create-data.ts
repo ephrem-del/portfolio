@@ -24,6 +24,60 @@ const collectionsData = {
       icon: "DiJsBadge",
     },
   ],
+
+  projects: [
+    {
+      title: "web development",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/portfolio-d5a6b.appspot.com/o/project.png?alt=media&token=625b774f-fd6c-4d05-a72a-edf455a3205c",
+      description: "E-SIM selling web development",
+      skills: ["UI/UX", "React", "Tailwind CSS"],
+    },
+    {
+      title: "web devlopment",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/portfolio-d5a6b.appspot.com/o/project.png?alt=media&token=625b774f-fd6c-4d05-a72a-edf455a3205c",
+      description: "E-commerce site development",
+      skills: ["Next", "Firebase", "Tailwind CSS"],
+    },
+    {
+      title: "mobile app",
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/portfolio-d5a6b.appspot.com/o/project.png?alt=media&token=625b774f-fd6c-4d05-a72a-edf455a3205c",
+      description: "Mobile app development",
+      skills: ["Flutter", "Dart", "Tailwind CSS"],
+    },
+  ],
+
+  testimonials: [
+    {
+      name: "Hakim",
+      title: "CTO",
+      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
+          a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
+          fugit eos similique quasi odio quo laudantium, minus sunt.`,
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/portfolio-d5a6b.appspot.com/o/programming.jpg?alt=media&token=48a0520e-b0ce-477e-93ba-3ac41d8847d2",
+    },
+    {
+      name: "Hakim",
+      title: "CTO",
+      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
+          a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
+          fugit eos similique quasi odio quo laudantium, minus sunt.`,
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/portfolio-d5a6b.appspot.com/o/programming.jpg?alt=media&token=48a0520e-b0ce-477e-93ba-3ac41d8847d2",
+    },
+    {
+      name: "Hakim",
+      title: "CTO",
+      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
+          a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
+          fugit eos similique quasi odio quo laudantium, minus sunt.`,
+      imageUrl:
+        "https://firebasestorage.googleapis.com/v0/b/portfolio-d5a6b.appspot.com/o/programming.jpg?alt=media&token=48a0520e-b0ce-477e-93ba-3ac41d8847d2",
+    },
+  ],
 };
 
 const addingData = async () => {

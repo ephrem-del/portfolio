@@ -1,39 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import useProject from "../../hooks/useProject";
 import ProjectCard from "./project-card";
-import projectImage from "../../public/project.png";
-
-const projects = [
-  {
-    title: "web development",
-    imageUrl: projectImage,
-    description: "E-SIM selling web development",
-    skills: ["UI/UX", "React", "Tailwind CSS"],
-  },
-  {
-    title: "web devlopment",
-    imageUrl: projectImage,
-    description: "E-commerce site development",
-    skills: ["Next", "Firebase", "Tailwind CSS"],
-  },
-  {
-    title: "mobile app",
-    imageUrl: projectImage,
-    description: "Mobile app development",
-    skills: ["Flutter", "Dart", "Tailwind CSS"],
-  },
-];
 
 const skills = ["All", "Flutter", "Next"];
 
 const ProjectSection = () => {
-  const [selectedSkill, setSelectedSkill] = useState("All");
+  const { filteredProjects, selectedSkill, setSelectedSkill } = useProject();
 
-  const filteredProjects =
-    selectedSkill === "All"
-      ? projects
-      : projects.filter((project) => project.skills.includes(selectedSkill));
   return (
     <section
       id="projects"
@@ -61,8 +35,9 @@ const ProjectSection = () => {
         ))}
       </div>
       <div className="flex flex-col gap-7 pt-[2rem] tablet:flex-row">
-        {filteredProjects.map((project) => (
+        {filteredProjects.map((project: any) => (
           <ProjectCard
+            key={project.id}
             imageUrl={project.imageUrl}
             title={project.title}
             description={project.description}

@@ -11,7 +11,7 @@ const FooterSection = () => {
   return (
     <footer className="w-full flex flex-col justify-center items-center gap-10 dark:text-white">
       <div className="flex flex-col items-center justify-center">
-        <div className=" flex items-center justify-center box-border gap-2 desktop:gap-5">
+        <div className="flex items-center justify-center box-border gap-2 desktop:gap-5">
           <Image
             src={logo}
             alt="portfolio"
