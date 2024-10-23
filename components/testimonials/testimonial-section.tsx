@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -11,13 +11,21 @@ import TestimonialCard from "./testimonial-card";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../lib/firebase";
 
-const TestimonialsSection = async () => {
-  const querySnapshot = await getDocs(collection(db, "testimonials"));
-  const testimonialsData = querySnapshot.docs.map((doc) => ({
-    ...doc.data(),
-    id: doc.id,
-  }));
-  console.log("testimonials data", testimonialsData);
+const TestimonialsSection = () => {
+  const [testimonialsData, setTestimonialsData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(collection(db, "testimonials"));
+      const testimonialsData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setTestimonialsData(testimonialsData);
+    };
+    fetchData();
+  }, []);
+
   return (
     <section
       id="testimonials"

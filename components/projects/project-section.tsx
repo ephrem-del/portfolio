@@ -1,29 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import ProjectCard from "./project-card";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../lib/firebase";
+import useProject from "./useProject";
+import { useEffect, useState } from "react";
 
 const skills = ["All", "Flutter", "Next"];
 
 const ProjectSection = () => {
+  const projectsData = useProject();
   const [selectedSkill, setSelectedSkill] = useState("All");
-  const [projectsData, setProjectsData] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState([]);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const querySnapshot = await getDocs(collection(db, "projects"));
-      const projects = querySnapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setProjectsData(projects);
-    };
-
-    fetchProjects();
-  }, []);
 
   useEffect(() => {
     const filtered =
@@ -33,7 +19,7 @@ const ProjectSection = () => {
             project.skills.includes(selectedSkill)
           );
     setFilteredProjects(filtered);
-  }, [selectedSkill, projectsData]);
+  }, [projectsData, selectedSkill]);
 
   return (
     <section
