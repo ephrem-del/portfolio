@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import logo from "../../public/subtract.png";
-import Link from "next/link";
 import NavLinks from "./nav-links";
 import SideNav from "./side-navigation";
 
@@ -61,12 +60,13 @@ const Navbar = () => {
       </nav>
       <div className="flex flex-col items-start justify-start  bg-darkorange-100 rounded-md desktop:ml-4">
         <button className="cursor-pointer [border:none] px-[4px] py-1  rounded-md bg-darkorange-100 flex flex-row items-start justify-start whitespace-nowrap hover:bg-orangered desktop:p-[14px] desktop:text-md">
-          <Link
+          <a
             href={""}
+            download="https://console.firebase.google.com/project/portfolio-d5a6b/storage/portfolio-d5a6b.appspot.com/files"
             className="[text-decoration:none] relative text-md tracking-[0.03em] text-white inline-block z-[1]"
           >
             Downlaod CV
-          </Link>
+          </a>
         </button>
       </div>
       <SideNav />
