@@ -1,10 +1,10 @@
 "use client";
 
-import useService from "../../hooks/useService";
+import useFirestoreData from "../../hooks/useFirestoreData";
 import ServiceCard from "./service-card";
 
 const ServiceSection = () => {
-  const servicesData = useService();
+  const {data, loading, error} = useFirestoreData('services')
 
   return (
     <section
@@ -18,7 +18,7 @@ const ServiceSection = () => {
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
       <div className="flex flex-col gap-3 tablet:flex-row">
-        {servicesData.map((service: any) => (
+        {data.map((service: any) => (
           <ServiceCard
             key={service.id}
             title={service.title}

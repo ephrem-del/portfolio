@@ -8,10 +8,10 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Navigation, Pagination } from "swiper/modules";
 import TestimonialCard from "./testimonial-card";
-import useTestimonial from "../../hooks/useTestimonial";
+import useFirestoreData from "../../hooks/useFirestoreData";
 
 const TestimonialsSection = () => {
-  const testimonialsData = useTestimonial();
+  const {data,loading,error} = useFirestoreData("testimonials")
 
   return (
     <section
@@ -48,7 +48,7 @@ const TestimonialsSection = () => {
           },
         }}
       >
-        {testimonialsData.map((testimonial: any) => {
+        {data.map((testimonial: any) => {
           return (
             <SwiperSlide key={testimonial.id}>
               <TestimonialCard
