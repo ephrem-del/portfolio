@@ -2,13 +2,13 @@
 import { useEffect, useState } from "react";
 import {getFirestoreData} from "../components/lib/firebase-crud/read-data";
 
-const useServicesData = (collectionName:any) => {
+const useFirestoreData = (collectionName:any) => {
     const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(true);
     const [error, setError] = useState(null); 
   
     useEffect(()=>{
-      const fetchData = async ()=>{
+      const fetchData = async () => {
       setLoading(true)
       try {
         const servicesData = await getFirestoreData(collectionName)
@@ -29,4 +29,4 @@ const useServicesData = (collectionName:any) => {
       return {data, isLoading, error}
   };
   
-  export default useServicesData;
+  export default useFirestoreData;

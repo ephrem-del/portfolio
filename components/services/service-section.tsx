@@ -1,10 +1,10 @@
 "use client";
 
-import useFirestoreData from "../../hooks/useServices";
+import useFirestore from "../../hooks/useFirestore";
 import ServiceCard from "./service-card";
 
 const ServiceSection = () => {
-  const {data, isLoading, error} = useFirestoreData("services")
+  const {data, isLoading, error} = useFirestore("services")
 
   return (
     <section
@@ -18,8 +18,7 @@ const ServiceSection = () => {
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
       <div className="flex flex-col gap-3 tablet:flex-row">
-        {isLoading && <p>Loading</p>}
-        {error && <p>getting error when fetching the data</p>}
+        {isLoading ? "Loading" : error ? "getting error when fetching the data" : null}
         {data.map((service: any) => (
           <ServiceCard
             key={service.id}

@@ -1,12 +1,14 @@
 "use client";
 
 import useProject from "../../hooks/useProject";
+import useFirestore from "../../hooks/useFirestore";
 import ProjectCard from "./project-card";
 
 const skills = ["All", "Flutter", "Next"];
 
 const ProjectSection = () => {
   const { filteredProjects, selectedSkill, setSelectedSkill } = useProject();
+  const {isLoading, error} = useFirestore("projects")
 
   return (
     <section
@@ -34,6 +36,7 @@ const ProjectSection = () => {
           </button>
         ))}
       </div>
+      {isLoading ? "Loading" : error ? "getting error when fetching the data" : null }
       <div className="flex flex-col gap-7 pt-[2rem] tablet:flex-row">
         {filteredProjects.map((project: any) => (
           <ProjectCard
