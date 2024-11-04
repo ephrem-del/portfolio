@@ -8,10 +8,10 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Navigation, Pagination } from "swiper/modules";
 import TestimonialCard from "./testimonial-card";
-import useFirestoreData from "../../hooks/useFirestoreData";
+import useFirestoreData from "../../hooks/useServices";
 
 const TestimonialsSection = () => {
-  const {data,loading,error} = useFirestoreData("testimonials")
+  const {data, isLoading, error} = useFirestoreData("testimonials")
 
   return (
     <section
@@ -24,6 +24,8 @@ const TestimonialsSection = () => {
         a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
+      {isLoading && <p>Loading</p>}
+      {error && <p>getting error when fetching the data</p>}
       <Swiper
         modules={[Navigation, Pagination]}
         slidesPerView={2}
@@ -32,7 +34,7 @@ const TestimonialsSection = () => {
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        className="w-[350px] tablet:w-[1500px] "
+        className="w-[350px] tablet:w-[1200px] "
         breakpoints={{
           320: {
             slidesPerView: 1,

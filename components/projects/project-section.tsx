@@ -19,7 +19,7 @@ const ProjectSection = () => {
         a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
-      <div className="flex gap-3 p-2">
+      <div className="flex gap-3 p-2">  
         {skills.map((skill, index) => (
           <button
             key={index}

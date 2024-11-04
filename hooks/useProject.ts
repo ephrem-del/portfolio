@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useFirestoreData from "./useFirestoreData";
+import useFirestoreData from "./useServices";
 
 export default function useProject() {
   const{data} = useFirestoreData("projects")
