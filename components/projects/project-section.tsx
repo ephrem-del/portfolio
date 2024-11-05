@@ -1,14 +1,18 @@
 "use client";
 
-import useProject from "../../hooks/useProject";
-import useFirestore from "../../hooks/useFirestore";
+import useProjectData from "../../hooks/useProjectData";
 import ProjectCard from "./project-card";
 
 const skills = ["All", "Flutter", "Next"];
 
 const ProjectSection = () => {
-  const { filteredProjects, selectedSkill, setSelectedSkill } = useProject();
-  const {isLoading, error} = useFirestore("projects")
+  const {
+    filteredProjects,
+    selectedSkill,
+    setSelectedSkill,
+    isLoading,
+    error,
+  } = useProjectData();
 
   return (
     <section

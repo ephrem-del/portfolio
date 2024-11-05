@@ -1,10 +1,10 @@
 "use client";
 
-import useFirestore from "../../hooks/useFirestore";
+import useServiceData from "../../hooks/useServiceData";
 import ServiceCard from "./service-card";
 
 const ServiceSection = () => {
-  const {data, isLoading, error} = useFirestore("services")
+  const { data, isLoading, error } = useServiceData();
 
   return (
     <section
