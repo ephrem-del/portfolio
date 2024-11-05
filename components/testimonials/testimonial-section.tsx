@@ -48,22 +48,24 @@ const TestimonialsSection = () => {
           },
         }}
       >
-        {isLoading
-          ? "Loading"
-          : error
-          ? "getting error when fetching the data"
-          : data.map((testimonial: any) => {
-              return (
-                <SwiperSlide key={testimonial.id}>
-                  <TestimonialCard
-                    name={testimonial.name}
-                    title={testimonial.title}
-                    description={testimonial.description}
-                    imageUrl={testimonial.imageUrl}
-                  />
-                </SwiperSlide>
-              );
-            })}
+        {isLoading ? (
+          <p>Loading</p>
+        ) : error ? (
+          <p>getting error when fetching the data</p>
+        ) : (
+          data.map((testimonial: any) => {
+            return (
+              <SwiperSlide key={testimonial.id}>
+                <TestimonialCard
+                  name={testimonial.name}
+                  title={testimonial.title}
+                  description={testimonial.description}
+                  imageUrl={testimonial.imageUrl}
+                />
+              </SwiperSlide>
+            );
+          })
+        )}
       </Swiper>
     </section>
   );

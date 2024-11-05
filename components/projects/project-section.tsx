@@ -37,18 +37,20 @@ const ProjectSection = () => {
         ))}
       </div>
       <div className="flex flex-col gap-7 pt-[2rem] tablet:flex-row">
-        {isLoading
-          ? "Loading"
-          : error
-          ? "getting error when fetching the data"
-          : filteredProjects.map((project: any) => (
-              <ProjectCard
-                key={project.id}
-                imageUrl={project.imageUrl}
-                title={project.title}
-                description={project.description}
-              />
-            ))}
+        {isLoading ? (
+          <p>Loading</p>
+        ) : error ? (
+          <p>getting error when fetching the data</p>
+        ) : (
+          filteredProjects.map((project: any) => (
+            <ProjectCard
+              key={project.id}
+              imageUrl={project.imageUrl}
+              title={project.title}
+              description={project.description}
+            />
+          ))
+        )}
       </div>
     </section>
   );

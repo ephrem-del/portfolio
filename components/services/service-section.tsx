@@ -18,18 +18,20 @@ const ServiceSection = () => {
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
       <div className="flex flex-col gap-3 tablet:flex-row">
-        {isLoading
-          ? "Loading"
-          : error
-          ? "getting error when fetching the data"
-          : data.map((service: any) => (
-              <ServiceCard
-                key={service.id}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-              />
-            ))}
+        {isLoading ? (
+          <p>Loading</p>
+        ) : error ? (
+          <p>getting error when fetching the data</p>
+        ) : (
+          data.map((service: any) => (
+            <ServiceCard
+              key={service.id}
+              title={service.title}
+              description={service.description}
+              icon={service.icon}
+            />
+          ))
+        )}
       </div>
     </section>
   );
