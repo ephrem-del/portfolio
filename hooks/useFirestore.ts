@@ -7,24 +7,24 @@ const useFirestoreData = (collectionName:any) => {
     const [isLoading, setLoading] = useState(true);
     const [error, setError] = useState(null); 
   
-    useEffect(()=>{
-      const fetchData = async () => {
-      setLoading(true)
-      try {
-        const servicesData = await getFirestoreData(collectionName)
-        setData(servicesData)
-
-      } catch (err) {
+  useEffect(() => {
+    setLoading(true);
+    getFirestoreData(collectionName)
+      .then(({ collectionData, error }) => {
+        if (error != null) {
+          setError(error);
+        } else {
+          setData(collectionData);
+        }
+      })
+      .catch((err) => {
         console.error("Error fetching services:", err);
         setError(err);
-
-      } finally {
+      })
+      .finally(() => {
         setLoading(false);
-      }
-      }
-      
-      fetchData()
-    },[])
+      });
+  }, []);
 
       return {data, isLoading, error}
   };

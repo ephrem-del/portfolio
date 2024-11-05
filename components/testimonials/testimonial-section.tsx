@@ -24,7 +24,6 @@ const TestimonialsSection = () => {
         a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
-      {isLoading ? "Loading" : error ? "getting error when fetching the data" : null }
       <Swiper
         modules={[Navigation, Pagination]}
         slidesPerView={2}
@@ -49,18 +48,22 @@ const TestimonialsSection = () => {
           },
         }}
       >
-        {data.map((testimonial: any) => {
-          return (
-            <SwiperSlide key={testimonial.id}>
-              <TestimonialCard
-                name={testimonial.name}
-                title={testimonial.title}
-                description={testimonial.description}
-                imageUrl={testimonial.imageUrl}
-              />
-            </SwiperSlide>
-          );
-        })}
+        {isLoading
+          ? "Loading"
+          : error
+          ? "getting error when fetching the data"
+          : data.map((testimonial: any) => {
+              return (
+                <SwiperSlide key={testimonial.id}>
+                  <TestimonialCard
+                    name={testimonial.name}
+                    title={testimonial.title}
+                    description={testimonial.description}
+                    imageUrl={testimonial.imageUrl}
+                  />
+                </SwiperSlide>
+              );
+            })}
       </Swiper>
     </section>
   );

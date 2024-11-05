@@ -21,7 +21,7 @@ const ProjectSection = () => {
         a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
-      <div className="flex gap-3 p-2">  
+      <div className="flex gap-3 p-2">
         {skills.map((skill, index) => (
           <button
             key={index}
@@ -36,16 +36,19 @@ const ProjectSection = () => {
           </button>
         ))}
       </div>
-      {isLoading ? "Loading" : error ? "getting error when fetching the data" : null }
       <div className="flex flex-col gap-7 pt-[2rem] tablet:flex-row">
-        {filteredProjects.map((project: any) => (
-          <ProjectCard
-            key={project.id}
-            imageUrl={project.imageUrl}
-            title={project.title}
-            description={project.description}
-          />
-        ))}
+        {isLoading
+          ? "Loading"
+          : error
+          ? "getting error when fetching the data"
+          : filteredProjects.map((project: any) => (
+              <ProjectCard
+                key={project.id}
+                imageUrl={project.imageUrl}
+                title={project.title}
+                description={project.description}
+              />
+            ))}
       </div>
     </section>
   );
