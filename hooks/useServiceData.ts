@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getFirestoreData } from "../components/lib/firebase-crud/read-data";
 
-interface Project {
+interface Service {
   title: string;
   imageUrl: string;
   description: string;
@@ -9,12 +9,12 @@ interface Project {
 }
 
 interface FirestoreResponse {
-  collectionData: Project[];
+  collectionData: Service[];
   error: string | null;
 }
 
 const useServiceData = () => {
-  const [data, setData] = useState<Project[]>([]);
+  const [data, setData] = useState<Service[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 

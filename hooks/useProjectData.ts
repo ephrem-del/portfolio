@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getFirestoreData } from "../components/lib/firebase-crud/read-data";
+import { Skills } from "../components/projects/project-section";
 
 interface Project {
   title: string;
@@ -15,13 +16,14 @@ interface FirestoreResponse {
 
 export default function useProjectData() {
   const [data, setData] = useState<Project[]>([]);
-  const [isLoading, setLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectedSkill, setSelectedSkill] = useState<string>("All");
+  // const [selectedSkill, setSelectedSkill] = useState<string>("All");
+  const [selectedSkill, setSelectedSkill] = useState<Skills>(Skills.All);
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
 
   useEffect(() => {
-    setLoading(true);
+    setIsLoading(true);
     getFirestoreData("projects")
       .then(({ collectionData, error }: FirestoreResponse) => {
         if (error != null) {
@@ -31,16 +33,22 @@ export default function useProjectData() {
         }
       })
       .finally(() => {
-        setLoading(false);
+        setIsLoading(false);
       });
   }, []);
 
   useEffect(() => {
-    const filtered =
-      selectedSkill === "All"
-        ? data
-        : data.filter((project: any) => project.skills.includes(selectedSkill));
-    setFilteredProjects(filtered);
+    if (data) {
+      const filtered =
+        selectedSkill === "All"
+          ? data
+          : data.filter((project: Project) =>
+              project.skills.includes(selectedSkill)
+            );
+      setFilteredProjects((prevFilteredProjects) =>
+        prevFilteredProjects === filtered ? prevFilteredProjects : filtered
+      );
+    }
   }, [data, selectedSkill]);
 
   return {

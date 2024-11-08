@@ -3,7 +3,13 @@
 import useProjectData from "../../hooks/useProjectData";
 import ProjectCard from "./project-card";
 
-const skills = ["All", "Flutter", "Next"];
+export enum Skills {
+  All = "All",
+  Flutter = "Flutter",
+  Next = "Next",
+}
+
+const skills = [Skills.All, Skills.Flutter, Skills.Next];
 
 const ProjectSection = () => {
   const {
