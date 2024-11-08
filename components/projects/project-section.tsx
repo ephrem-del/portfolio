@@ -9,8 +9,6 @@ export enum Skills {
   Next = "Next",
 }
 
-const skills = [Skills.All, Skills.Flutter, Skills.Next];
-
 const ProjectSection = () => {
   const {
     filteredProjects,
@@ -32,7 +30,7 @@ const ProjectSection = () => {
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
       <div className="flex gap-3 p-2">
-        {skills.map((skill, index) => (
+        {Object.values(Skills).map((skill, index) => (
           <button
             key={index}
             onClick={() => setSelectedSkill(skill)}

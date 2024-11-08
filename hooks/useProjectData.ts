@@ -18,13 +18,12 @@ export default function useProjectData() {
   const [data, setData] = useState<Project[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  // const [selectedSkill, setSelectedSkill] = useState<string>("All");
   const [selectedSkill, setSelectedSkill] = useState<Skills>(Skills.All);
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
 
   useEffect(() => {
     setIsLoading(true);
-    getFirestoreData("projects")
+    getFirestoreData("projects", 3)
       .then(({ collectionData, error }: FirestoreResponse) => {
         if (error != null) {
           setError(error);

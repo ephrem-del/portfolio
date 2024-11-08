@@ -3,9 +3,8 @@ import { getFirestoreData } from "../components/lib/firebase-crud/read-data";
 
 interface Service {
   title: string;
-  imageUrl: string;
   description: string;
-  skills: string[];
+  icon: string;
 }
 
 interface FirestoreResponse {
@@ -16,13 +15,13 @@ interface FirestoreResponse {
 const useServiceData = () => {
   const [data, setData] = useState<Service[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string>();
 
   useEffect(() => {
     setLoading(true);
-    getFirestoreData("services")
+    getFirestoreData("services", 4)
       .then(({ collectionData, error }: FirestoreResponse) => {
-        if (error != null) {
+        if (error) {
           setError(error);
         } else {
           setData(collectionData);

@@ -1,9 +1,18 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase";
 
-export async function getFirestoreData(collectionName: any) {
+export async function getFirestoreData(
+  collectionName: any,
+  limitNumber?: number
+) {
+  const collectionRef = collection(db, collectionName);
+  const q = query(
+    collectionRef,
+    orderBy("createdAt", "desc"),
+    limit(limitNumber)
+  );
   try {
-    const querySnapshot = await getDocs(collection(db, collectionName));
+    const querySnapshot = await getDocs(q);
     const servicesData = querySnapshot.docs.map((doc) => {
       return {
         ...doc.data(),

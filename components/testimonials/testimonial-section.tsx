@@ -59,7 +59,7 @@ const TestimonialsSection = () => {
                 <TestimonialCard
                   name={testimonial.name}
                   title={testimonial.title}
-                  description={testimonial.description}
+                  feedback={testimonial.feedback}
                   imageUrl={testimonial.imageUrl}
                 />
               </SwiperSlide>

@@ -3,14 +3,14 @@ import Image, { StaticImageData } from "next/image";
 interface TestimonialsCardProps {
   name: string;
   title: string;
-  description: string;
+  feedback: string;
   imageUrl: StaticImageData;
 }
 
 const TestimonialCard: React.FC<TestimonialsCardProps> = ({
   name,
   title,
-  description,
+  feedback,
   imageUrl,
 }) => {
   return (
@@ -34,7 +34,7 @@ const TestimonialCard: React.FC<TestimonialsCardProps> = ({
           <span className="text-3xl text-darkorange-100 ml-[-16px]">
             &ldquo;
           </span>
-          {description}
+          {feedback}
           <sub className="text-2xl font-bold text-darkorange-100 ml-1 relative top-3">
             &rdquo;
           </sub>

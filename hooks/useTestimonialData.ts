@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { getFirestoreData } from "../components/lib/firebase-crud/read-data";
 
 interface Testimonial {
+  name: string;
   title: string;
   imageUrl: string;
-  description: string;
-  skills: string[];
+  feedback: string;
 }
 
 interface FirestoreResponse {
@@ -16,13 +16,13 @@ interface FirestoreResponse {
 const useTestimonialData = () => {
   const [data, setData] = useState<Testimonial[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string>(null);
+  const [error, setError] = useState<string>();
 
   useEffect(() => {
     setLoading(true);
     getFirestoreData("testimonials")
       .then(({ collectionData, error }: FirestoreResponse) => {
-        if (error != null) {
+        if (error) {
           setError(error);
         } else {
           setData(collectionData);

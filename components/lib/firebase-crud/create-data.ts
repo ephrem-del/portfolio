@@ -1,4 +1,4 @@
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 
 const collectionsData = {
@@ -53,7 +53,7 @@ const collectionsData = {
     {
       name: "Hakim",
       title: "CTO",
-      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
+      feedback: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
           a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
           fugit eos similique quasi odio quo laudantium, minus sunt.`,
       imageUrl:
@@ -86,7 +86,10 @@ const addingData = async () => {
       const collectionRef = collection(db, collectionName);
 
       for (const doc of documents) {
-        const docRef = await addDoc(collectionRef, doc);
+        const docRef = await addDoc(collectionRef, {
+          ...doc,
+          createdAt: serverTimestamp(),
+        });
         console.log(`Document added to ${collectionName} with ID: `, docRef.id);
       }
     }
