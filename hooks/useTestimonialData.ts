@@ -15,11 +15,11 @@ interface FirestoreResponse {
 
 const useTestimonialData = () => {
   const [data, setData] = useState<Testimonial[]>([]);
-  const [isLoading, setLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>();
 
   useEffect(() => {
-    setLoading(true);
+    setIsLoading(true);
     getFirestoreData("testimonials")
       .then(({ collectionData, error }: FirestoreResponse) => {
         if (error) {
@@ -29,7 +29,7 @@ const useTestimonialData = () => {
         }
       })
       .finally(() => {
-        setLoading(false);
+        setIsLoading(false);
       });
   }, []);
 

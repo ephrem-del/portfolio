@@ -31,9 +31,8 @@ const TestimonialCard: React.FC<TestimonialsCardProps> = ({
 
       <div className="flex flex-col items-center justify-center tablet:items-start">
         <p className="text-black m-0 text-sm">
-          <span className="text-3xl text-darkorange-100 ml-[-16px]">
-            &ldquo;
-          </span>
+          {/* <span className="text-3xl text-darkorange-100 ml-[-16px]"> */}
+          <span className="text-3xl text-darkorange-100 -ml-4">&ldquo;</span>
           {feedback}
           <sub className="text-2xl font-bold text-darkorange-100 ml-1 relative top-3">
             &rdquo;

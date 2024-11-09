@@ -26,7 +26,7 @@ const TestimonialsSection = () => {
       </p>
       <Swiper
         modules={[Navigation, Pagination]}
-        slidesPerView={2}
+        // slidesPerView={1}
         centeredSlides={true}
         loop={true}
         navigation

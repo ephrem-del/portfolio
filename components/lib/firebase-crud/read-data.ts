@@ -21,7 +21,11 @@ export async function getFirestoreData(
     });
     return { collectionData: servicesData, error: null };
   } catch (error) {
-    console.error("error fetching data:", error);
-    return { collectionData: null, error: error.message || "an error occured" };
+    console.error("error while fetching data:", error);
+    return {
+      collectionData: null,
+      error:
+        error.message || "An error has occured while retriving the documents",
+    };
   }
 }

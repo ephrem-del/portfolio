@@ -62,7 +62,7 @@ const collectionsData = {
     {
       name: "Hakim",
       title: "CTO",
-      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
+      feedback: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
           a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
           fugit eos similique quasi odio quo laudantium, minus sunt.`,
       imageUrl:
@@ -71,7 +71,7 @@ const collectionsData = {
     {
       name: "Hakim",
       title: "CTO",
-      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
+      feedback: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
           a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
           fugit eos similique quasi odio quo laudantium, minus sunt.`,
       imageUrl:
