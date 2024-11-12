@@ -1,10 +1,14 @@
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase";
 
-export async function getFirestoreData(
-  collectionName: any,
-  limitNumber?: number
-) {
+interface FirestoreResponse<T> {
+  collectionData: T[] | null;
+  error: string | null;
+}
+export async function getFirestoreData<T>(
+  collectionName: string,
+  limitNumber: number
+): Promise<FirestoreResponse<T>> {
   const collectionRef = collection(db, collectionName);
   const q = query(
     collectionRef,
@@ -13,19 +17,18 @@ export async function getFirestoreData(
   );
   try {
     const querySnapshot = await getDocs(q);
-    const servicesData = querySnapshot.docs.map((doc) => {
+    const collectionData = querySnapshot.docs.map((doc) => {
       return {
         ...doc.data(),
         id: doc.id,
       };
-    });
-    return { collectionData: servicesData, error: null };
+    }) as T[];
+    return { collectionData, error: null };
   } catch (error) {
-    console.error("error while fetching data:", error);
+    console.error("Error while fetching data:", error);
     return {
       collectionData: null,
-      error:
-        error.message || "An error has occured while retriving the documents",
+      error: error instanceof Error ? error.message : String(error),
     };
   }
 }

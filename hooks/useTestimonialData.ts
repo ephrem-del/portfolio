@@ -8,26 +8,22 @@ interface Testimonial {
   feedback: string;
 }
 
-interface FirestoreResponse {
-  collectionData: Testimonial[];
-  error: string | null;
-}
-
 const useTestimonialData = () => {
   const [data, setData] = useState<Testimonial[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string>();
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     setIsLoading(true);
-    getFirestoreData("testimonials")
-      .then(({ collectionData, error }: FirestoreResponse) => {
+    getFirestoreData<Testimonial>("testimonials", 5)
+      .then(({ collectionData, error }) => {
         if (error) {
           setError(error);
         } else {
-          setData(collectionData);
+          setData(collectionData ?? []);
         }
       })
+
       .finally(() => {
         setIsLoading(false);
       });
