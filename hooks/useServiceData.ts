@@ -10,7 +10,7 @@ interface Service {
 const useServiceData = () => {
   const [data, setData] = useState<Service[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string>();
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     setIsLoading(true);
