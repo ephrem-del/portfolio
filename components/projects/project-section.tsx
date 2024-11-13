@@ -7,6 +7,7 @@ export enum Skills {
   All = "All",
   Flutter = "Flutter",
   Next = "Next",
+  React = "React",
 }
 
 const ProjectSection = () => {

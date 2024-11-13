@@ -7,11 +7,6 @@ interface Service {
   icon: string;
 }
 
-interface FirestoreResponse {
-  collectionData: Service[];
-  error: string | null;
-}
-
 const useServiceData = () => {
   const [data, setData] = useState<Service[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -19,12 +14,12 @@ const useServiceData = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getFirestoreData("services", 4)
-      .then(({ collectionData, error }: FirestoreResponse) => {
+    getFirestoreData<Service>("services", 4)
+      .then(({ collectionData, error }) => {
         if (error) {
           setError(error);
         } else {
-          setData(collectionData);
+          setData(collectionData ?? []);
         }
       })
       .finally(() => {

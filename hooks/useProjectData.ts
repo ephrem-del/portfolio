@@ -6,12 +6,7 @@ interface Project {
   title: string;
   imageUrl: string;
   description: string;
-  skills: string[];
-}
-
-interface FirestoreResponse {
-  collectionData: Project[];
-  error: string | null;
+  techStack: string[];
 }
 
 export default function useProjectData() {
@@ -23,12 +18,12 @@ export default function useProjectData() {
 
   useEffect(() => {
     setIsLoading(true);
-    getFirestoreData("projects", 3)
-      .then(({ collectionData, error }: FirestoreResponse) => {
+    getFirestoreData<Project>("projects", 3)
+      .then(({ collectionData, error }) => {
         if (error != null) {
           setError(error);
         } else {
-          setData(collectionData);
+          setData(collectionData ?? []);
         }
       })
       .finally(() => {
@@ -42,7 +37,7 @@ export default function useProjectData() {
         selectedSkill === "All"
           ? data
           : data.filter((project: Project) =>
-              project.skills.includes(selectedSkill)
+              project.techStack.includes(selectedSkill)
             );
       setFilteredProjects((prevFilteredProjects) =>
         prevFilteredProjects === filtered ? prevFilteredProjects : filtered
