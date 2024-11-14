@@ -23,8 +23,9 @@ const SideNav = () => {
       </div>
       <div
         className={
-          nav &&
-          "fixed flex justify-center items-center left-0 top-0 w-full h-screen bg-black/70"
+          nav
+            ? "fixed flex justify-center items-center left-0 top-0 w-full h-screen bg-black/70"
+            : ""
         }
       >
         <div

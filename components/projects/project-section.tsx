@@ -1,39 +1,24 @@
 "use client";
 
-import React, { useState } from "react";
+import useProjectData from "../../hooks/useProjectData";
 import ProjectCard from "./project-card";
-import projectImage from "../../public/project.png";
 
-const projects = [
-  {
-    title: "web development",
-    imageUrl: projectImage,
-    description: "E-SIM selling web development",
-    skills: ["UI/UX", "React", "Tailwind CSS"],
-  },
-  {
-    title: "web devlopment",
-    imageUrl: projectImage,
-    description: "E-commerce site development",
-    skills: ["Next", "Firebase", "Tailwind CSS"],
-  },
-  {
-    title: "mobile app",
-    imageUrl: projectImage,
-    description: "Mobile app development",
-    skills: ["Flutter", "Dart", "Tailwind CSS"],
-  },
-];
-
-const skills = ["All", "Flutter", "Next"];
+export enum Skills {
+  All = "All",
+  Flutter = "Flutter",
+  Next = "Next",
+  React = "React",
+}
 
 const ProjectSection = () => {
-  const [selectedSkill, setSelectedSkill] = useState("All");
+  const {
+    filteredProjects,
+    selectedSkill,
+    setSelectedSkill,
+    isLoading,
+    error,
+  } = useProjectData();
 
-  const filteredProjects =
-    selectedSkill === "All"
-      ? projects
-      : projects.filter((project) => project.skills.includes(selectedSkill));
   return (
     <section
       id="projects"
@@ -46,7 +31,7 @@ const ProjectSection = () => {
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
       <div className="flex gap-3 p-2">
-        {skills.map((skill, index) => (
+        {Object.values(Skills).map((skill, index) => (
           <button
             key={index}
             onClick={() => setSelectedSkill(skill)}
@@ -61,13 +46,20 @@ const ProjectSection = () => {
         ))}
       </div>
       <div className="flex flex-col gap-7 pt-[2rem] tablet:flex-row">
-        {filteredProjects.map((project) => (
-          <ProjectCard
-            imageUrl={project.imageUrl}
-            title={project.title}
-            description={project.description}
-          />
-        ))}
+        {isLoading ? (
+          <p>Loading</p>
+        ) : error ? (
+          <p>getting error when fetching the data</p>
+        ) : (
+          filteredProjects.map((project: any) => (
+            <ProjectCard
+              key={project.id}
+              imageUrl={project.imageUrl}
+              title={project.title}
+              description={project.description}
+            />
+          ))
+        )}
       </div>
     </section>
   );

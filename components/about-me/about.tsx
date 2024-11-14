@@ -38,7 +38,7 @@ const AboutMe = () => {
                 {skills.map((skill) => (
                   <div
                     key={skill}
-                    className="flex flex-col gap-2 tablet:gap-[5px]"
+                    className="flex flex-col gap-1 tablet:gap-[5px]"
                   >
                     <div className=" font-semibold inline-block min-w-[35px]">
                       {skill}

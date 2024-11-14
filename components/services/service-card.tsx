@@ -1,3 +1,4 @@
+import { IconType } from "react-icons";
 import * as DiIcons from "react-icons/di";
 
 interface ServiceCardProps {
@@ -11,7 +12,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   description,
   icon,
 }) => {
-  const ServiceIcon = DiIcons[icon];
+  const ServiceIcon = DiIcons[icon as keyof typeof DiIcons] as IconType;
 
   return (
     <div className="flex flex-col justify-start px-5 py-7 bg-whitesmoke-200 dark:bg-white text-black rounded-lg">

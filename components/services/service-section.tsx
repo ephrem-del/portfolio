@@ -1,13 +1,10 @@
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../lib/firebase";
+"use client";
+
+import useServiceData from "../../hooks/useServiceData";
 import ServiceCard from "./service-card";
 
-const ServiceSection = async () => {
-  const querySnapshot = await getDocs(collection(db, "services"));
-  const serviceData = querySnapshot.docs.map((doc) => ({
-    ...doc.data(),
-    id: doc.id,
-  }));
+const ServiceSection = () => {
+  const { data, isLoading, error } = useServiceData();
 
   return (
     <section
@@ -21,14 +18,20 @@ const ServiceSection = async () => {
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
       <div className="flex flex-col gap-3 tablet:flex-row">
-        {serviceData.map((service: any) => (
-          <ServiceCard
-            key={service.id}
-            title={service.title}
-            description={service.description}
-            icon={service.icon}
-          />
-        ))}
+        {isLoading ? (
+          <p>Loading</p>
+        ) : error ? (
+          <p>getting error when fetching the data</p>
+        ) : (
+          data.map((service: any) => (
+            <ServiceCard
+              key={service.id}
+              title={service.title}
+              description={service.description}
+              icon={service.icon}
+            />
+          ))
+        )}
       </div>
     </section>
   );
