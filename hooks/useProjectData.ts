@@ -20,10 +20,10 @@ export default function useProjectData() {
     setIsLoading(true);
     getFirestoreData<Project>("projects", 3)
       .then(({ collectionData, error }) => {
-        if (error != null) {
+        if (error !== null) {
           setError(error);
         } else {
-          setData(collectionData ?? []);
+          setData(collectionData);
         }
       })
       .finally(() => {

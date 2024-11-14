@@ -1,10 +1,15 @@
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase";
 
-interface FirestoreResponse<T> {
-  collectionData: T[] | null;
-  error: string | null;
-}
+type FirestoreResponse<T> =
+  | {
+      collectionData: T[];
+      error: null;
+    }
+  | {
+      collectionData: null;
+      error: string;
+    };
 export async function getFirestoreData<T>(
   collectionName: string,
   limitNumber: number

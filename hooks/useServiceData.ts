@@ -16,10 +16,10 @@ const useServiceData = () => {
     setIsLoading(true);
     getFirestoreData<Service>("services", 4)
       .then(({ collectionData, error }) => {
-        if (error) {
+        if (error !== null) {
           setError(error);
         } else {
-          setData(collectionData ?? []);
+          setData(collectionData);
         }
       })
       .finally(() => {

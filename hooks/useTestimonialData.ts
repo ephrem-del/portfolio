@@ -17,10 +17,10 @@ const useTestimonialData = () => {
     setIsLoading(true);
     getFirestoreData<Testimonial>("testimonials", 5)
       .then(({ collectionData, error }) => {
-        if (error) {
+        if (error !== null) {
           setError(error);
         } else {
-          setData(collectionData ?? []);
+          setData(collectionData);
         }
       })
 
