@@ -1,10 +1,16 @@
 "use client";
 
+import { useEffect } from "react";
 import useServiceData from "../../hooks/useServiceData";
 import ServiceCard from "./service-card";
+import addingData from "../lib/firebase-crud/create-data";
 
 const ServiceSection = () => {
   const { data, isLoading, error } = useServiceData();
+
+  useEffect(() => {
+    // addingData();
+  }, []);
 
   return (
     <section
