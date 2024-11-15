@@ -31,21 +31,21 @@ const collectionsData = {
       imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/portfolio-d5a6b.appspot.com/o/project.png?alt=media&token=625b774f-fd6c-4d05-a72a-edf455a3205c",
       description: "E-SIM selling web development",
-      skills: ["UI/UX", "React", "Tailwind CSS"],
+      techStack: ["UI/UX", "React", "Tailwind CSS"],
     },
     {
       title: "web devlopment",
       imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/portfolio-d5a6b.appspot.com/o/project.png?alt=media&token=625b774f-fd6c-4d05-a72a-edf455a3205c",
       description: "E-commerce site development",
-      skills: ["Next", "Firebase", "Tailwind CSS"],
+      techStack: ["Next", "Firebase", "Tailwind CSS"],
     },
     {
       title: "mobile app",
       imageUrl:
         "https://firebasestorage.googleapis.com/v0/b/portfolio-d5a6b.appspot.com/o/project.png?alt=media&token=625b774f-fd6c-4d05-a72a-edf455a3205c",
       description: "Mobile app development",
-      skills: ["Flutter", "Dart", "Tailwind CSS"],
+      techStack: ["Flutter", "Dart", "Tailwind CSS"],
     },
   ],
 
