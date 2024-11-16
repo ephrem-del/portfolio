@@ -1,16 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
-import useServiceData from "../../hooks/useServiceData";
+import useServiceData, { ServiceType } from "../../hooks/useServiceData";
 import ServiceCard from "./service-card";
-import addingData from "../lib/firebase-crud/create-data";
 
 const ServiceSection = () => {
   const { data, isLoading, error } = useServiceData();
-
-  useEffect(() => {
-    // addingData();
-  }, []);
 
   return (
     <section
@@ -29,12 +23,12 @@ const ServiceSection = () => {
         ) : error ? (
           <p>getting error when fetching the data</p>
         ) : (
-          data.map((service: any) => (
+          data.map((service: ServiceType) => (
             <ServiceCard
               key={service.id}
               title={service.title}
               description={service.description}
-              icon={service.icon}
+              imageUrl={service.imageUrl}
             />
           ))
         )}

@@ -7,7 +7,7 @@ import SocialLinks from "./social-links";
 import useHeroData from "../../hooks/useHeroData";
 
 const Hero = () => {
-  const { data } = useHeroData();
+  const { data, isLoading, error } = useHeroData();
   return (
     <>
       <div className="fixed flex items-center justify-center top-[7rem] left-[1rem] cursor-pointer tablet:top-[20rem] tablet:left-[10rem]">
@@ -49,15 +49,21 @@ const Hero = () => {
         </div>
         <div>
           <div className="h-[300px] w-[250px] relative max-w-full desktop:min-w-[538px] desktop:h-[620px] desktop:w-[540px]  ">
-            {data.map((image, index) => (
-              <Image
-                key={index}
-                className="object-cover"
-                fill
-                src={image.imageUrl}
-                alt={`Image ${index}`}
-              />
-            ))}
+            {isLoading ? (
+              <div>Loading...</div>
+            ) : error ? (
+              <div>Error: {error}</div>
+            ) : (
+              data.map((image, index) => (
+                <Image
+                  src={image.imageUrl}
+                  alt={`Image ${index}`}
+                  key={index}
+                  className="object-cover"
+                  fill
+                />
+              ))
+            )}
             <div className="hidden desktop:flex">
               <div className="absolute top-[78px] left-[82px] bg-darkorange-200 w-[374px] h-[83px] z-[1]" />
             </div>

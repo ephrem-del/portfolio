@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 import { getFirestoreData } from "../components/lib/firebase-crud/read-data";
 
-interface Service {
+export interface ServiceType {
+  id?: string;
   title: string;
   description: string;
-  icon: string;
+  imageUrl: string;
 }
 
 const useServiceData = () => {
-  const [data, setData] = useState<Service[]>([]);
+  const [data, setData] = useState<ServiceType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     setIsLoading(true);
-    getFirestoreData<Service>("services", 4)
+    getFirestoreData<ServiceType>("services", 4)
       .then(({ collectionData, error }) => {
         if (error !== null) {
           setError(error);

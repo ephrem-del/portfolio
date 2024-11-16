@@ -1,4 +1,11 @@
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getDocs,
+  query,
+  serverTimestamp,
+  where,
+} from "firebase/firestore";
 import { db } from "../firebase";
 import uploadImage from "./storage";
 import imageUrl from "../../../public/subtract.png";
@@ -25,47 +32,44 @@ Turpis tempus pharetra`,
     {
       title: "Web Development",
       description: "Responsive and scalable full stack web development",
-      icon: "DiJsBadge",
+      // icon: "DiJsBadge",
+      imageUrl: imageUrl,
     },
     {
       title: "App Development",
       description: "Mobile app development for different Brand devices",
-      icon: "DiReact",
+      // icon: "DiReact",
+      imageUrl: imageUrl,
     },
     {
       title: "Software Developer ",
       description: "Responsive and scalable full stack web development",
-      icon: "DiCodeBadge",
+      // icon: "DiCodeBadge",
+      imageUrl: imageUrl,
     },
     {
       title: "Web Development",
       description: "Responsive and scalable full stack web development",
-      icon: "DiJsBadge",
+      // icon: "DiJsBadge",
+      imageUrl: imageUrl,
     },
   ],
 
   projects: [
     {
       title: "web development",
-      // imageUrl:
-      //   "https://firebasestorage.googleapis.com/v0/b/portfolio-d5a6b.appspot.com/o/project.png?alt=media&token=625b774f-fd6c-4d05-a72a-edf455a3205c",
       imageUrl: imageUrl,
       description: "E-SIM selling web development",
       techStack: ["UI/UX", "React", "Tailwind CSS"],
     },
     {
       title: "web devlopment",
-      // imageUrl:
-      //   "https://firebasestorage.googleapis.com/v0/b/portfolio-d5a6b.appspot.com/o/project.png?alt=media&token=625b774f-fd6c-4d05-a72a-edf455a3205c",
       imageUrl: imageUrl,
       description: "E-commerce site development",
       techStack: ["Next", "Firebase", "Tailwind CSS"],
     },
     {
       title: "mobile app",
-      // imageUrl:
-      //   "https://firebasestorage.googleapis.com/v0/b/portfolio-d5a6b.appspot.com/o/project.png?alt=media&token=625b774f-fd6c-4d05-a72a-edf455a3205c",
-      imageUrl: imageUrl,
       description: "Mobile app development",
       techStack: ["Flutter", "Dart", "Tailwind CSS"],
     },
@@ -78,8 +82,6 @@ Turpis tempus pharetra`,
       feedback: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
           a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
           fugit eos similique quasi odio quo laudantium, minus sunt.`,
-      // imageUrl:
-      //   "https://firebasestorage.googleapis.com/v0/b/portfolio-d5a6b.appspot.com/o/programming.jpg?alt=media&token=48a0520e-b0ce-477e-93ba-3ac41d8847d2",
       imageUrl: imageUrl,
     },
     {
@@ -88,8 +90,6 @@ Turpis tempus pharetra`,
       feedback: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
           a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
           fugit eos similique quasi odio quo laudantium, minus sunt.`,
-      // imageUrl:
-      //   "https://firebasestorage.googleapis.com/v0/b/portfolio-d5a6b.appspot.com/o/programming.jpg?alt=media&token=48a0520e-b0ce-477e-93ba-3ac41d8847d2",
       imageUrl: imageUrl,
     },
     {
@@ -98,8 +98,6 @@ Turpis tempus pharetra`,
       feedback: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ipsam
           a tempore sapiente, nobis labore atque, corrupti rerum itaque unde neque
           fugit eos similique quasi odio quo laudantium, minus sunt.`,
-      // imageUrl:
-      //   "https://firebasestorage.googleapis.com/v0/b/portfolio-d5a6b.appspot.com/o/programming.jpg?alt=media&token=48a0520e-b0ce-477e-93ba-3ac41d8847d2",
       imageUrl: imageUrl,
     },
   ],

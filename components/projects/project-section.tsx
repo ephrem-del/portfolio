@@ -1,6 +1,6 @@
 "use client";
 
-import useProjectData from "../../hooks/useProjectData";
+import useProjectData, { ProjectType } from "../../hooks/useProjectData";
 import ProjectCard from "./project-card";
 
 export enum Skills {
@@ -51,7 +51,7 @@ const ProjectSection = () => {
         ) : error ? (
           <p>getting error when fetching the data</p>
         ) : (
-          filteredProjects.map((project: any) => (
+          filteredProjects.map((project: ProjectType) => (
             <ProjectCard
               key={project.id}
               imageUrl={project.imageUrl}
