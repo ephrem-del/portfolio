@@ -30,7 +30,7 @@ const Hero = () => {
                 <div className="flex items-start justify-start gap-2 desktop:mt-[-13px] desktop:text-5xl desktop:flex-col">
                   <h1 className="text-inherit tracking-[0.03em] font-bold font-[inherit] desktop:inline-block desktop:max-w-full desktop:w-[500px] desktop:m-0">{`Flutter`}</h1>
                   <div className=" flex justify-end desktop:mt-[-25px] desktop:self-stretch">
-                    <h1 className="text-inherit tracking-[0.03em] font-bold font-[inherit] desktop:m-0 ">{`Developer `}</h1>
+                    <h1 className="text-inherit tracking-[0.03em] font-bold font-[inherit] desktop:m-0 ">{`Developer`}</h1>
                   </div>
                 </div>
               </div>

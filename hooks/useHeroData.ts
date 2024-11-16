@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getFirestoreData } from "../components/lib/firebase-crud/read-data";
+import { getFirestoreData } from "../components/lib/firebase-crud/get-data";
 
 export interface HeroType {
   title: string;

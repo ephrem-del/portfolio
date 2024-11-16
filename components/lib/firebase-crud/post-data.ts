@@ -107,7 +107,7 @@ function hasImageUrl(doc: any): doc is { imageUrl: string } {
   return "imageUrl" in doc && typeof doc.imageUrl === "string";
 }
 
-const addingData = async () => {
+const postFirestoreData = async () => {
   try {
     for (const [collectionName, documents] of Object.entries(collectionsData)) {
       const collectionRef = collection(db, collectionName);
@@ -136,4 +136,4 @@ const addingData = async () => {
   }
 };
 
-export default addingData;
+export default postFirestoreData;
