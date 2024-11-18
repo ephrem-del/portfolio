@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getFirestoreData } from "../components/lib/firebase-crud/get-data";
+import { fetchFirestoreData } from "../components/lib/firebase-crud/fetch-data";
 
 interface AboutMe {
   skills: string[];
@@ -13,7 +13,7 @@ const useAboutMeData = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getFirestoreData<AboutMe>("aboutMe", 1)
+    fetchFirestoreData<AboutMe>("aboutMe", 1)
       .then(({ collectionData, error }) => {
         if (error !== null) {
           setError(error);

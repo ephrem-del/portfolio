@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getFirestoreData } from "../components/lib/firebase-crud/get-data";
+import { fetchFirestoreData } from "../components/lib/firebase-crud/fetch-data";
 
 export interface HeroType {
   title: string;
@@ -14,7 +14,7 @@ const useHeroData = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getFirestoreData<HeroType>("hero", 1)
+    fetchFirestoreData<HeroType>("hero", 1)
       .then(({ collectionData, error }) => {
         if (error !== null) {
           setError(error);

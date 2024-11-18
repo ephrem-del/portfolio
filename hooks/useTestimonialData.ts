@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getFirestoreData } from "../components/lib/firebase-crud/get-data";
+import { fetchFirestoreData } from "../components/lib/firebase-crud/fetch-data";
 
 interface TestimonialType {
   name: string;
@@ -15,7 +15,7 @@ const useTestimonialData = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getFirestoreData<TestimonialType>("testimonials", 5)
+    fetchFirestoreData<TestimonialType>("testimonials", 5)
       .then(({ collectionData, error }) => {
         if (error !== null) {
           setError(error);

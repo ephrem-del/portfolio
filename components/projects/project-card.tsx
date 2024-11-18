@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ProjectType } from "../../hooks/useProjectData";
 import imagePlaceholder from "../../public/subtract.png";
 
@@ -10,18 +10,10 @@ const ProjectCard: React.FC<ProjectType> = ({
   title,
   description,
 }) => {
-  const [image, setImage] = useState(imagePlaceholder);
-
-  useEffect(() => {
-    if (imageUrl) {
-      setImage(imageUrl as any);
-    }
-  }, [imageUrl]);
-
   return (
     <div className="flex flex-col justify-start text-black rounded-lg">
       <Image
-        src={image}
+        src={imageUrl ?? imagePlaceholder}
         alt="personal image"
         width={320}
         height={200}

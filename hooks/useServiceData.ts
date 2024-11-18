@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getFirestoreData } from "../components/lib/firebase-crud/get-data";
+import { fetchFirestoreData } from "../components/lib/firebase-crud/fetch-data";
 
 export interface ServiceType {
   id?: string;
@@ -15,7 +15,7 @@ const useServiceData = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getFirestoreData<ServiceType>("services", 4)
+    fetchFirestoreData<ServiceType>("services", 4)
       .then(({ collectionData, error }) => {
         if (error !== null) {
           setError(error);

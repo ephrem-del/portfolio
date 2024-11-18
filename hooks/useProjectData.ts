@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getFirestoreData } from "../components/lib/firebase-crud/get-data";
+import { fetchFirestoreData } from "../components/lib/firebase-crud/fetch-data";
 import { Skills } from "../components/projects/project-section";
 
 export interface ProjectType {
@@ -19,7 +19,7 @@ export default function useProjectData() {
 
   useEffect(() => {
     setIsLoading(true);
-    getFirestoreData<ProjectType>("projects", 3)
+    fetchFirestoreData<ProjectType>("projects", 3)
       .then(({ collectionData, error }) => {
         if (error !== null) {
           setError(error);
