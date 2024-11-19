@@ -1,7 +1,9 @@
+import FormHandler from "./form-handler";
+
 export default function DashboardPage() {
   return (
     <>
-      <h1>hello dashboard</h1>
+      <FormHandler />
     </>
   );
 }

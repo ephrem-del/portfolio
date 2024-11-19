@@ -1,16 +1,6 @@
-import {
-  addDoc,
-  collection,
-  getDocs,
-  query,
-  serverTimestamp,
-  where,
-} from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 import uploadImage from "./storage";
-import imageUrl from "../../../public/subtract.png";
-import heroImageUrl from "../../../public/group-2@2x.png";
-import aboutImageUrl from "../../../public/group-7@2x.png";
 
 const collectionsData = {
   hero: [
@@ -109,24 +99,20 @@ function hasImageUrl(doc: any): doc is { imageUrl: string } {
 
 const createFirestoreData = async () => {
   try {
-    for (const [collectionName, documents] of Object.entries(collectionsData)) {
-      const collectionRef = collection(db, collectionName);
+    const collectionRef = collection(db, category);
 
-      for (const doc of documents) {
-        let uploadedImageUrl: string | undefined = undefined;
-
-        if (hasImageUrl(doc)) {
-          uploadedImageUrl = await uploadImage(collectionName, doc.imageUrl);
-        }
-
-        const docRef = await addDoc(collectionRef, {
-          ...doc,
-          ...(uploadedImageUrl && { imageUrl: uploadedImageUrl }),
-          createdAt: serverTimestamp(),
-        });
-        console.log(`Document added to ${collectionName} with ID: `, docRef.id);
-      }
+    let uploadedImageUrl;
+    if (data.file) {
+      uploadedImageUrl = await uploadImage(category, data.file);
     }
+
+    const docRef = await addDoc(collectionRef, {
+      ...data,
+      ...(uploadedImageUrl && { imageUrl: uploadedImageUrl }),
+      createdAt: serverTimestamp(),
+    });
+
+    console.log(`Document added to ${category} with ID: `, docRef.id);
   } catch (e) {
     if (e instanceof Error) {
       console.error("Error adding document: ", e.message);
