@@ -36,11 +36,16 @@ const Hero = () => {
               </div>
             </div>
             <div className="flex flex-col items-start justify-start gap-[27px] max-w-full text-justify">
-              <div className="tablet:text-xl">
+              {/* <div className="tablet:text-xl">
                 Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa
                 nibh lectus netus in. Aliquet donec morbi convallis pretium.
                 Turpis tempus pharetra
+              </div> */}
+
+              <div className="tablet:text-xl">
+                {data.map((descriptionData) => descriptionData.description)}
               </div>
+
               <button className=" bg-orange-400 rounded text-lg px-[1rem] py-[.5rem] text-white desktop:text-4xl ">
                 hire me
               </button>
@@ -61,6 +66,7 @@ const Hero = () => {
                   key={index}
                   className="object-cover"
                   fill
+                  unoptimized
                 />
               ))
             )}

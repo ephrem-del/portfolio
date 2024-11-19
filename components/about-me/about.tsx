@@ -22,6 +22,7 @@ const AboutMe = () => {
                 key={index}
                 className="object-cover"
                 fill
+                unoptimized
               />
             ))}
             <div className="absolute top-[80px] left-[85px] bg-darkorange-200 w-[374px] h-[83px] z-[1]" />

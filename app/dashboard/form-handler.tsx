@@ -135,7 +135,6 @@ export default function FormHandler() {
           value={formData.title}
           onChange={handleInputChange}
           className="mt-1 block w-full h-[25px] rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-          required
         />
       </label>
 
@@ -146,7 +145,6 @@ export default function FormHandler() {
           value={formData.description}
           onChange={handleInputChange}
           className="mt-1 block w-full h-[70px] rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-          required
         ></textarea>
       </label>
 
@@ -173,7 +171,7 @@ export default function FormHandler() {
       <button
         type="submit"
         // disabled={uploading}
-        className="w-full py-2 px-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 disabled:opacity-50"
+        className="w-full py-2 px-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 disabled:opacity-20"
       >
         {/* {uploading ? "Uploading..." : "Submit"} */}
         submit
