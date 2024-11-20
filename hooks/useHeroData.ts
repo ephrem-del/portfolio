@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { fetchFirestoreData } from "../components/lib/firebase-crud/fetch-data";
 
 export interface HeroType {
-  title: string;
   description: string;
   imageUrl: any;
 }

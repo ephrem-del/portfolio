@@ -36,12 +36,6 @@ const Hero = () => {
               </div>
             </div>
             <div className="flex flex-col items-start justify-start gap-[27px] max-w-full text-justify">
-              {/* <div className="tablet:text-xl">
-                Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa
-                nibh lectus netus in. Aliquet donec morbi convallis pretium.
-                Turpis tempus pharetra
-              </div> */}
-
               <div className="tablet:text-xl">
                 {data.map((descriptionData) => descriptionData.description)}
               </div>
@@ -53,7 +47,7 @@ const Hero = () => {
           </div>
         </div>
         <div>
-          <div className="h-[300px] w-[250px] relative max-w-full desktop:min-w-[538px] desktop:h-[620px] desktop:w-[540px]  ">
+          <div className="rounded-full overflow-hidden h-[300px] w-[250px] relative  desktop:h-[400px] desktop:w-[400px]  ">
             {isLoading ? (
               <div>Loading...</div>
             ) : error ? (
@@ -62,17 +56,13 @@ const Hero = () => {
               data.map((image, index) => (
                 <Image
                   src={image.imageUrl}
-                  alt={`Image ${index}`}
+                  alt={`Image of ${index}`}
                   key={index}
                   className="object-cover"
                   fill
-                  unoptimized
                 />
               ))
             )}
-            <div className="hidden desktop:flex">
-              <div className="absolute top-[78px] left-[82px] bg-darkorange-200 w-[374px] h-[83px] z-[1]" />
-            </div>
           </div>
           <div className="hidden tablet:flex">
             <div className="flex items-center justify-center gap-5 my-8 w-full">
