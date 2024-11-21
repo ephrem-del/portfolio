@@ -25,11 +25,7 @@ export const createFirestoreData = async ({
 
     console.log(`Document added to ${category} with ID: `, docRef.id);
   } catch (e) {
-    if (e instanceof Error) {
-      console.error("Error adding document: ", e.message);
-    } else {
-      console.error("Unexpected error: ", e);
-    }
+    console.error("Error while creating data:", e);
   }
 };
 

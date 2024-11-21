@@ -14,7 +14,7 @@ const ProjectCard: React.FC<ProjectType> = ({
     <div className="flex flex-col justify-start text-black rounded-lg">
       <Image
         src={imageUrl ?? imagePlaceholder}
-        alt="personal image"
+        alt={`my ${title} image`}
         width={320}
         height={200}
         className="h-[200px] w-[320px] relative tablet:h-[400px] tablet:w-[350px]"

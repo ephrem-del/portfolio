@@ -1,12 +1,13 @@
 import createFirestoreData from "../../components/lib/firebase-crud/create-data";
 import uploadImage from "../../components/lib/firebase-crud/storage";
+import { FormData } from "../../hooks/useFormHandler";
 
-export const prepareFormData = (formData: any) => {
+export const prepareFormData = (formData: FormData) => {
   const techStackArray = formData.techStack
     ? formData.techStack.split(",").map((tech: string) => tech.trim())
     : [];
 
-  let data: any = {};
+  let data = {};
   switch (formData.category) {
     case "hero":
       data = { description: formData.description };
@@ -31,8 +32,6 @@ export const prepareFormData = (formData: any) => {
         feedback: formData.feedback,
       };
       break;
-    default:
-      throw new Error("Unknown category");
   }
   return { category: formData.category, data, file: formData.file };
 };

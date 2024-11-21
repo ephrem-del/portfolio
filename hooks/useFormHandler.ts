@@ -4,7 +4,7 @@ import {
   prepareFormData,
 } from "../app/dashboard/form-service";
 
-interface FormData {
+export interface FormData {
   category: string;
   name: string;
   title: string;
@@ -42,23 +42,19 @@ export default function useFormHandler() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const preparedData = prepareFormData(formData);
-    try {
-      await handleSubmitToAPI(preparedData);
-      alert("Form submitted successfully!");
-      setFormData({
-        category: "",
-        name: "",
-        title: "",
-        description: "",
-        feedback: "",
-        techStack: "",
-        file: null,
-      });
-    } catch (error) {
-      console.error("Form submission failed:", error);
-      alert("Failed to submit the form. Please try again.");
-    }
-  };
 
+    await handleSubmitToAPI(preparedData);
+    alert("Form submitted successfully!");
+
+    setFormData({
+      category: "",
+      name: "",
+      title: "",
+      description: "",
+      feedback: "",
+      techStack: "",
+      file: null,
+    });
+  };
   return { formData, handleInputChange, handleSubmit, handleFileChange };
 }

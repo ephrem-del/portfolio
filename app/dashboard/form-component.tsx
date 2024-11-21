@@ -37,6 +37,7 @@ export default function FormComponent() {
             value={formData.name}
             onChange={handleInputChange}
             className="mt-1 block w-full h-[25px] rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+            required
           />
         </label>
       )}
@@ -50,6 +51,7 @@ export default function FormComponent() {
             value={formData.title}
             onChange={handleInputChange}
             className="mt-1 block w-full h-[25px] rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+            required
           />
         </label>
       )}
@@ -62,7 +64,8 @@ export default function FormComponent() {
             value={formData.description}
             onChange={handleInputChange}
             className="mt-1 block w-full h-[70px] rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-          ></textarea>
+            required
+          />
         </label>
       )}
 
@@ -74,7 +77,8 @@ export default function FormComponent() {
             value={formData.feedback}
             onChange={handleInputChange}
             className="mt-1 block w-full h-[70px] rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-          ></textarea>
+            required
+          />
         </label>
       )}
 
@@ -87,6 +91,7 @@ export default function FormComponent() {
             value={formData.techStack}
             onChange={handleInputChange}
             className="mt-1 block w-full h-[50px] rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+            required
           />
         </label>
       )}
@@ -97,6 +102,7 @@ export default function FormComponent() {
           type="file"
           onChange={handleFileChange}
           className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+          required
         />
       </label>
 
