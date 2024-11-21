@@ -1,9 +1,10 @@
-import FormHandler from "./form-handler";
+import FormComponent from "./form-component";
+
 
 export default function DashboardPage() {
   return (
     <>
-      <FormHandler />
+      <FormComponent />
     </>
   );
 }

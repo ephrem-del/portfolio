@@ -1,11 +1,21 @@
-"use client";
-
 import { useState } from "react";
-import FormComponent from "./form-component";
-import { handleSubmitToAPI, prepareFormData } from "./form-service";
+import {
+  handleSubmitToAPI,
+  prepareFormData,
+} from "../app/dashboard/form-service";
 
-export default function FormHandler() {
-  const [formData, setFormData] = useState({
+interface FormData {
+  category: string;
+  name: string;
+  title: string;
+  description: string;
+  feedback: string;
+  techStack: string;
+  file: File | null;
+}
+
+export default function useFormHandler() {
+  const [formData, setFormData] = useState<FormData>({
     category: "",
     name: "",
     title: "",
@@ -24,9 +34,9 @@ export default function FormHandler() {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleFileChange = (e:any) => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
-    setFormData((prevData) => ({ ...prevData, file: file  }));
+    setFormData((prevData) => ({ ...prevData, file }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -50,12 +60,5 @@ export default function FormHandler() {
     }
   };
 
-  return (
-    <FormComponent
-      formData={formData}
-      onInputChange={handleInputChange}
-      onFileChange={handleFileChange}
-      onSubmit={handleSubmit}
-    />
-  );
+  return { formData, handleInputChange, handleSubmit, handleFileChange };
 }

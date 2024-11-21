@@ -3,32 +3,38 @@
 import React, { useEffect, useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 
+enum Theme {
+  light = "light",
+  dark = "dark",
+}
+
 const ToggleTheme = () => {
-  const [theme, setTheme] = useState<string | null>(null);
+  const [theme, setTheme] = useState<Theme>(Theme.light);
 
   const toggleClick = () => {
-    if (theme === "dark") {
+    if (theme === Theme.dark) {
       document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setTheme("light");
+      localStorage.setItem("theme", Theme.light);
+      setTheme(Theme.light);
     } else {
       document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setTheme("dark");
+      localStorage.setItem("theme", Theme.dark);
+      setTheme(Theme.dark);
     }
   };
 
   const initializeTheme = () => {
-    const savedTheme = localStorage.getItem("theme");
+    const savedTheme = localStorage.getItem("theme") as Theme | null;
     const systemPrefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
 
     if (savedTheme) {
       setTheme(savedTheme);
-      document.documentElement.classList.toggle("dark", savedTheme === "dark");
+      document.documentElement.classList.toggle("dark", savedTheme === Theme.dark);
     } else {
-      setTheme(systemPrefersDark ? "dark" : "light");
+      const initialTheme = systemPrefersDark ? Theme.dark : Theme.light;
+      setTheme(initialTheme);
       document.documentElement.classList.toggle("dark", systemPrefersDark);
     }
   };
@@ -38,7 +44,7 @@ const ToggleTheme = () => {
 
     const handleSystemThemeChange = (e: MediaQueryListEvent) => {
       if (!localStorage.getItem("theme")) {
-        const newTheme = e.matches ? "dark" : "light";
+        const newTheme = e.matches ? Theme.dark : Theme.light;
         setTheme(newTheme);
         document.documentElement.classList.toggle("dark", e.matches);
       }
@@ -57,7 +63,7 @@ const ToggleTheme = () => {
       onClick={toggleClick}
       className="rounded-full shadow-lg shadow-gray-50 p-1 cursor-pointer"
     >
-      {theme === "light" ? (
+      {theme === Theme.light ? (
         <FaMoon className="size-6 desktop:size-10" />
       ) : (
         <FaSun className="size-6 desktop:size-10" color="gray" />

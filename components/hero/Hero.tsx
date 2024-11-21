@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import ToggleTheme from "../theme-toggle/theme";
+import ToggleTheme from "../theme-toggle/toggle-theme";
 import SocialLinks from "./social-links";
 import useHeroData from "../../hooks/useHeroData";
 

@@ -1,25 +1,14 @@
+"use client";
 
-interface FormProps {
-  formData: any;
-  onInputChange: (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
-  ) => void;
-  onFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-}
+import useFormHandler from "../../hooks/useFormHandler";
 
-export default function FormComponent({
-  formData,
-  onInputChange,
-  onFileChange,
-  onSubmit,
-}: FormProps) {
+export default function FormComponent() {
+  const { formData, handleInputChange, handleSubmit, handleFileChange } =
+    useFormHandler();
 
   return (
     <form
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit}
       className=" p-6 bg-gray-100 rounded-md shadow-md"
     >
       <label className="block mb-2">
@@ -27,7 +16,7 @@ export default function FormComponent({
         <select
           name="category"
           value={formData.category}
-          onChange={onInputChange}
+          onChange={handleInputChange}
           className="mt-1 block w-full h-[40px] rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
           required
         >
@@ -46,7 +35,7 @@ export default function FormComponent({
             type="text"
             name="name"
             value={formData.name}
-            onChange={onInputChange}
+            onChange={handleInputChange}
             className="mt-1 block w-full h-[25px] rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
           />
         </label>
@@ -59,7 +48,7 @@ export default function FormComponent({
             type="text"
             name="title"
             value={formData.title}
-            onChange={onInputChange}
+            onChange={handleInputChange}
             className="mt-1 block w-full h-[25px] rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
           />
         </label>
@@ -71,7 +60,7 @@ export default function FormComponent({
           <textarea
             name="description"
             value={formData.description}
-            onChange={onInputChange}
+            onChange={handleInputChange}
             className="mt-1 block w-full h-[70px] rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
           ></textarea>
         </label>
@@ -83,7 +72,7 @@ export default function FormComponent({
           <textarea
             name="feedback"
             value={formData.feedback}
-            onChange={onInputChange}
+            onChange={handleInputChange}
             className="mt-1 block w-full h-[70px] rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
           ></textarea>
         </label>
@@ -96,7 +85,7 @@ export default function FormComponent({
             type="text"
             name="techStack"
             value={formData.techStack}
-            onChange={onInputChange}
+            onChange={handleInputChange}
             className="mt-1 block w-full h-[50px] rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
           />
         </label>
@@ -106,7 +95,7 @@ export default function FormComponent({
         <span className="text-gray-700">Upload Image</span>
         <input
           type="file"
-          onChange={onFileChange}
+          onChange={handleFileChange}
           className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
         />
       </label>
@@ -120,4 +109,3 @@ export default function FormComponent({
     </form>
   );
 }
-
