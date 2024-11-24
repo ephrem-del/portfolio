@@ -15,7 +15,7 @@ const Hero = () => {
       </div>
       <div
         id="hero"
-        className={`flex flex-col-reverse items-center justify-center px-[5%] gap-10 font- dark:text-white tablet:flex-row tablet:gap-[140px] tablet:px-[10%] desktop:px-[20%]`}
+        className={`flex flex-col-reverse items-center justify-center px-[5%] gap-10 font- dark:text-white tablet:flex-row tablet:gap-[140px] tablet:px-[10%] desktop:px-[20%] pt-[100px]`}
       >
         <div className="w-full flex flex-col tablet:min-w-[450px] ">
           <div className="flex flex-col desktop:gap-[40px] desktop:max-w-full ">

@@ -41,20 +41,26 @@ export default function useFormHandler() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const preparedData = prepareFormData(formData);
+  
+    try {
+      const preparedData = prepareFormData(formData);
+      await handleSubmitToAPI(preparedData);
 
-    await handleSubmitToAPI(preparedData);
-    alert("Form submitted successfully!");
+      alert("Form submitted successfully!");
 
-    setFormData({
-      category: "",
-      name: "",
-      title: "",
-      description: "",
-      feedback: "",
-      techStack: "",
-      file: null,
-    });
+      setFormData({
+        category: "",
+        name: "",
+        title: "",
+        description: "",
+        feedback: "",
+        techStack: "",
+        file: null,
+      });
+    } catch (error) {
+      console.error("Error while submitting form:", error);
+      alert("An error occurred while submitting the form. Please try again.");
+    }
   };
   return { formData, handleInputChange, handleSubmit, handleFileChange };
 }

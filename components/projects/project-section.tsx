@@ -31,19 +31,21 @@ const ProjectSection = () => {
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
       <div className="flex gap-3 p-2">
-        {Object.values(Skills).map((skill, index) => (
-          <button
-            key={index}
-            onClick={() => setSelectedSkill(skill)}
-            className={`px-5 py-3 text-lg font-poppins rounded-lg  ${
-              selectedSkill === skill
-                ? "bg-darkorange-100"
-                : "bg-whitesmoke-200 dark:bg-white text-black dark:hover:bg-gainsboro-200"
-            }`}
-          >
-            {skill}
-          </button>
-        ))}
+        {Object.values(Skills).map((skill, index) => {
+          return (
+            <button
+              key={index}
+              onClick={() => setSelectedSkill(skill)}
+              className={`px-5 py-3 text-lg font-poppins rounded-lg  ${
+                selectedSkill === skill
+                  ? "bg-darkorange-100"
+                  : "bg-whitesmoke-200 dark:bg-white text-black dark:hover:bg-gainsboro-200"
+              }`}
+            >
+              {skill}
+            </button>
+          );
+        })}
       </div>
       <div className="flex flex-col gap-7 pt-[2rem] tablet:flex-row">
         {isLoading ? (

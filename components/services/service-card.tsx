@@ -14,7 +14,7 @@ const ServiceCard: React.FC<ServiceType> = ({ title, description, imageUrl }) =>
         className="rounded object-cover h-[5rem] w-[5rem]"
       />
       <h1 className="text-lg font-bold">{title}</h1>
-      <p className="text-block">{description}</p>
+      <p className="text-block overflow-hidden max-h-[50px]">{description}</p>
     </div>
   );
 };

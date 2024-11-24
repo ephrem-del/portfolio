@@ -35,7 +35,7 @@ export default function useProjectData() {
   useEffect(() => {
     if (data) {
       const filtered =
-        selectedSkill === "All"
+        selectedSkill === Skills.All
           ? data
           : data.filter((project: ProjectType) =>
               project.techStack?.includes(selectedSkill)
