@@ -7,14 +7,16 @@ export interface ProjectType {
   title: string;
   imageUrl: string;
   description: string;
-  techStack?: string[];
+  skills: string[];
 }
 
 export default function useProjectData() {
   const [data, setData] = useState<ProjectType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectedSkill, setSelectedSkill] = useState<Skills>(Skills.All);
+  const [selectedSkill, setSelectedSkill] = useState<Skills>(
+    Skills.All.toLowerCase() as Skills
+  );
   const [filteredProjects, setFilteredProjects] = useState<ProjectType[]>([]);
 
   useEffect(() => {
@@ -35,10 +37,10 @@ export default function useProjectData() {
   useEffect(() => {
     if (data) {
       const filtered =
-        selectedSkill === Skills.All
+        selectedSkill === Skills.All.toLowerCase()
           ? data
           : data.filter((project: ProjectType) =>
-              project.techStack?.includes(selectedSkill)
+              project.skills.includes(selectedSkill.toLowerCase())
             );
       setFilteredProjects((prevFilteredProjects) =>
         prevFilteredProjects === filtered ? prevFilteredProjects : filtered

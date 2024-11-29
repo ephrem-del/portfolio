@@ -35,9 +35,9 @@ const ProjectSection = () => {
           return (
             <button
               key={index}
-              onClick={() => setSelectedSkill(skill)}
+              onClick={() => setSelectedSkill(skill.toLowerCase() as Skills)}
               className={`px-5 py-3 text-lg font-poppins rounded-lg  ${
-                selectedSkill === skill
+                selectedSkill === skill.toLowerCase()
                   ? "bg-darkorange-100"
                   : "bg-whitesmoke-200 dark:bg-white text-black dark:hover:bg-gainsboro-200"
               }`}
@@ -59,6 +59,7 @@ const ProjectSection = () => {
               imageUrl={project.imageUrl}
               title={project.title}
               description={project.description}
+              skills={project.skills}
             />
           ))
         )}

@@ -41,12 +41,13 @@ export default function useFormHandler() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
     try {
       const preparedData = prepareFormData(formData);
-      await handleSubmitToAPI(preparedData);
-
-      alert("Form submitted successfully!");
+      let storedData = await handleSubmitToAPI(preparedData);
+      if (storedData !== undefined) {
+        alert("Form submitted successfully!");
+      }
 
       setFormData({
         category: "",

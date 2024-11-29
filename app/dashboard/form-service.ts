@@ -4,7 +4,9 @@ import { FormData } from "../../hooks/useFormHandler";
 
 export const prepareFormData = (formData: FormData) => {
   const techStackArray = formData.techStack
-    ? formData.techStack.split(",").map((tech: string) => tech.trim())
+    ? formData.techStack
+        .split(",")
+        .map((tech: string) => tech.trim().toLowerCase())
     : [];
 
   let data = {};

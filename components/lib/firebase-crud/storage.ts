@@ -5,7 +5,11 @@ async function uploadImage(
   collectionName: string,
   imageFile: Blob | Uint8Array | ArrayBuffer
 ) {
-  const filePath = `images/${collectionName}/${imageFile}`;
+  const uniqueName =
+    imageFile instanceof File
+      ? `${Date.now()}-${imageFile.name}`
+      : `${Date.now()}-image`;
+  const filePath = `images/${collectionName}/${uniqueName}`;
   const newImageRef = ref(storage, filePath);
   await uploadBytesResumable(newImageRef, imageFile);
 
