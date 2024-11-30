@@ -54,7 +54,7 @@ const AboutMe = () => {
                         className="flex flex-col gap-1 tablet:gap-[5px]"
                       >
                         <div className=" font-semibold inline-block min-w-[35px]">
-                          {skill}
+                          {skill.charAt(0).toUpperCase() + skill.slice(1)}
                         </div>
                         <div className="h-8 relative">
                           <div className="absolute top-[10px] left-[20px] rounded-md bg-whitesmoke-200 w-[300px] h-2 tablet:w-[430px] tablet:h-3" />

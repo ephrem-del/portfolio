@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { fetchFirestoreData } from "../components/lib/firebase-crud/fetch-data";
 
-interface TestimonialType {
+export interface TestimonialType {
+  id?: string;
   name: string;
   title: string;
   imageUrl: string;

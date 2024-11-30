@@ -1,13 +1,7 @@
 import Image, { StaticImageData } from "next/image";
+import { TestimonialType } from "../../hooks/useTestimonialData";
 
-interface TestimonialsCardProps {
-  name: string;
-  title: string;
-  feedback: string;
-  imageUrl: StaticImageData;
-}
-
-const TestimonialCard: React.FC<TestimonialsCardProps> = ({
+const TestimonialCard: React.FC<TestimonialType> = ({
   name,
   title,
   feedback,
