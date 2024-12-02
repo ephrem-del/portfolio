@@ -34,7 +34,6 @@ const TestimonialsSection = () => {
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         className="w-[350px] tablet:w-[1200px]"
-        // className="w-full h-[400px]"
         breakpoints={{
           320: {
             slidesPerView: 1,

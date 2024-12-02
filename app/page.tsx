@@ -19,9 +19,7 @@ export default async function Home() {
         <TestimonialsSection />
         <ContactSection />
       </main>
-      <div className="mt-[50px] pt-7 bg-gray-800">
-        <FooterSection />
-      </div>
+      <FooterSection />
     </div>
   );
 }
