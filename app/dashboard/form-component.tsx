@@ -26,6 +26,7 @@ export default function FormComponent() {
           <option value="services">Services</option>
           <option value="projects">Projects</option>
           <option value="testimonials">Testimonials</option>
+          <option value="uploadCV">Upload your CV</option>
         </select>
       </label>
       {formData.category == "testimonials" && (
@@ -96,15 +97,30 @@ export default function FormComponent() {
         </label>
       )}
 
-      <label className="block mb-4">
-        <span className="text-gray-700">Upload Image</span>
-        <input
-          type="file"
-          onChange={handleFileChange}
-          className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
-          required
-        />
-      </label>
+      {!["", "uploadCV"].includes(formData.category) && (
+        <label className="block mb-4">
+          <span className="text-gray-700">Upload Image</span>
+          <input
+            type="file"
+            onChange={handleFileChange}
+            className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+            required
+          />
+        </label>
+      )}
+
+      {formData.category == "uploadCV" && (
+        <label className="block mb-4">
+          <span className="text-gray-700">Upload CV</span>
+          <input
+            type="file"
+            accept=".pdf,.doc,.docx"
+            onChange={handleFileChange}
+            className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+            required
+          />
+        </label>
+      )}
 
       <button
         type="submit"

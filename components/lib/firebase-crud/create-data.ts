@@ -1,6 +1,5 @@
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
-import uploadImage from "./storage";
 
 export const createFirestoreData = async ({
   category,
@@ -12,17 +11,14 @@ export const createFirestoreData = async ({
   try {
     const collectionRef = collection(db, category);
 
-    let uploadedImageUrl;
-    if (data.file) {
-      uploadedImageUrl = await uploadImage(category, data.file);
-    }
-
     const docRef = await addDoc(collectionRef, {
       ...data,
-      ...(uploadedImageUrl && { imageUrl: uploadedImageUrl }),
       createdAt: serverTimestamp(),
     });
 
+    if (docRef) {
+      alert("document created successfully");
+    }
     console.log(`Document added to ${category} with ID: `, docRef.id);
   } catch (e) {
     console.error("Error while creating data:", e);

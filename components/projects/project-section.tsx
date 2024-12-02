@@ -3,13 +3,6 @@
 import useProjectData, { ProjectType } from "../../hooks/useProjectData";
 import ProjectCard from "./project-card";
 
-export enum Skills {
-  All = "All",
-  Flutter = "Flutter",
-  Next = "Next",
-  React = "React",
-}
-
 const ProjectSection = () => {
   const {
     filteredProjects,
@@ -17,6 +10,7 @@ const ProjectSection = () => {
     setSelectedSkill,
     isLoading,
     error,
+    allSkills,
   } = useProjectData();
 
   return (
@@ -31,21 +25,19 @@ const ProjectSection = () => {
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
       <div className="flex gap-3 p-2">
-        {Object.values(Skills).map((skill, index) => {
-          return (
-            <button
-              key={index}
-              onClick={() => setSelectedSkill(skill.toLowerCase() as Skills)}
-              className={`px-5 py-3 text-lg font-poppins rounded-lg  ${
-                selectedSkill === skill.toLowerCase()
-                  ? "bg-darkorange-100"
-                  : "bg-whitesmoke-200 dark:bg-white text-black dark:hover:bg-gainsboro-200"
-              }`}
-            >
-              {skill}
-            </button>
-          );
-        })}
+        {allSkills.map((skill, index) => (
+          <button
+            key={index}
+            onClick={() => setSelectedSkill(skill)}
+            className={`px-5 py-3 text-lg font-poppins rounded-lg ${
+              selectedSkill === skill
+                ? "bg-darkorange-100"
+                : "bg-whitesmoke-200 dark:bg-white text-black dark:hover:bg-gainsboro-200"
+            }`}
+          >
+            {skill.charAt(0).toUpperCase() + skill.slice(1)}
+          </button>
+        ))}
       </div>
       <div className="flex flex-col gap-7 pt-[2rem] tablet:flex-row">
         {isLoading ? (

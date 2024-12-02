@@ -1,5 +1,5 @@
 import createFirestoreData from "../../components/lib/firebase-crud/create-data";
-import uploadImage from "../../components/lib/firebase-crud/storage";
+import uploadFile from "../../components/lib/firebase-crud/storage";
 import { FormData } from "../../hooks/useFormHandler";
 
 export const prepareFormData = (formData: FormData) => {
@@ -34,15 +34,25 @@ export const prepareFormData = (formData: FormData) => {
         feedback: formData.feedback,
       };
       break;
+    case "uploadCV":
+      data = {
+        title: formData.title,
+        name: formData.name,
+      };
+      break;
   }
   return { category: formData.category, data, file: formData.file };
 };
 
 export const handleSubmitToAPI = async ({ category, data, file }: any) => {
   if (file) {
-    const uploadedImageUrl = await uploadImage(category, file);
-    if (uploadedImageUrl) {
-      data.imageUrl = uploadedImageUrl;
+    const folder = category === "uploadCV" ? "cv" : "images";
+    const uploadedFileUrl = await uploadFile(folder, file);
+
+    if (category === "uploadCV") {
+      data.cvUrl = uploadedFileUrl;
+    } else {
+      data.imageUrl = uploadedFileUrl;
     }
   }
   await createFirestoreData({ category, data });

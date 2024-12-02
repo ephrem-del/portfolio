@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { fetchFirestoreData } from "../components/lib/firebase-crud/fetch-data";
-import { Skills } from "../components/projects/project-section";
 
 export interface ProjectType {
   id?: string;
@@ -14,9 +13,8 @@ export default function useProjectData() {
   const [data, setData] = useState<ProjectType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectedSkill, setSelectedSkill] = useState<Skills>(
-    Skills.All.toLowerCase() as Skills
-  );
+  const [selectedSkill, setSelectedSkill] = useState("all");
+  const [allSkills, setAllSkills] = useState<string[]>([]);
   const [filteredProjects, setFilteredProjects] = useState<ProjectType[]>([]);
 
   useEffect(() => {
@@ -27,6 +25,12 @@ export default function useProjectData() {
           setError(error);
         } else {
           setData(collectionData);
+
+          const skills = [
+            "All",
+            ...new Set(collectionData.flatMap((project) => project.skills)),
+          ];
+          setAllSkills(skills.map((skill) => skill.toLowerCase()));
         }
       })
       .finally(() => {
@@ -37,7 +41,7 @@ export default function useProjectData() {
   useEffect(() => {
     if (data) {
       const filtered =
-        selectedSkill === Skills.All.toLowerCase()
+        selectedSkill === "all"
           ? data
           : data.filter((project: ProjectType) =>
               project.skills.includes(selectedSkill.toLowerCase())
@@ -54,5 +58,6 @@ export default function useProjectData() {
     setSelectedSkill,
     isLoading,
     error,
+    allSkills,
   };
 }
