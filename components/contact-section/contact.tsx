@@ -14,7 +14,7 @@ const ContactSection = () => {
 
     if (form.current) {
       emailjs
-        .sendForm(serviceId, templateId, form.current, {
+        .sendForm(serviceId ?? "", templateId ?? "", form.current, {
           publicKey: publicKey,
         })
         .then(
