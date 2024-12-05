@@ -1,29 +1,36 @@
 import { useEffect, useState } from "react";
-import { getFirestoreData } from "../components/lib/firebase-crud/read-data";
-import { Skills } from "../components/projects/project-section";
+import { fetchFirestoreData } from "../components/lib/firebase-crud/fetch-data";
 
-interface Project {
+export interface ProjectType {
+  id?: string;
   title: string;
   imageUrl: string;
   description: string;
-  techStack: string[];
+  skills: string[];
 }
 
 export default function useProjectData() {
-  const [data, setData] = useState<Project[]>([]);
+  const [data, setData] = useState<ProjectType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectedSkill, setSelectedSkill] = useState<Skills>(Skills.All);
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
+  const [selectedSkill, setSelectedSkill] = useState("all");
+  const [allSkills, setAllSkills] = useState<string[]>([]);
+  const [filteredProjects, setFilteredProjects] = useState<ProjectType[]>([]);
 
   useEffect(() => {
     setIsLoading(true);
-    getFirestoreData<Project>("projects", 3)
+    fetchFirestoreData<ProjectType>("projects", 3)
       .then(({ collectionData, error }) => {
         if (error !== null) {
           setError(error);
         } else {
           setData(collectionData);
+
+          const skills = [
+            "All",
+            ...new Set(collectionData.flatMap((project) => project.skills)),
+          ];
+          setAllSkills(skills.map((skill) => skill.toLowerCase()));
         }
       })
       .finally(() => {
@@ -34,10 +41,10 @@ export default function useProjectData() {
   useEffect(() => {
     if (data) {
       const filtered =
-        selectedSkill === "All"
+        selectedSkill === "all"
           ? data
-          : data.filter((project: Project) =>
-              project.techStack.includes(selectedSkill)
+          : data.filter((project: ProjectType) =>
+              project.skills.includes(selectedSkill.toLowerCase())
             );
       setFilteredProjects((prevFilteredProjects) =>
         prevFilteredProjects === filtered ? prevFilteredProjects : filtered
@@ -51,5 +58,6 @@ export default function useProjectData() {
     setSelectedSkill,
     isLoading,
     error,
+    allSkills,
   };
 }

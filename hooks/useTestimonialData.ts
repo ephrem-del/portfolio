@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { getFirestoreData } from "../components/lib/firebase-crud/read-data";
+import { fetchFirestoreData } from "../components/lib/firebase-crud/fetch-data";
 
-interface Testimonial {
+export interface TestimonialType {
+  id?: string;
   name: string;
   title: string;
   imageUrl: string;
@@ -9,13 +10,13 @@ interface Testimonial {
 }
 
 const useTestimonialData = () => {
-  const [data, setData] = useState<Testimonial[]>([]);
+  const [data, setData] = useState<TestimonialType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     setIsLoading(true);
-    getFirestoreData<Testimonial>("testimonials", 5)
+    fetchFirestoreData<TestimonialType>("testimonials", 5)
       .then(({ collectionData, error }) => {
         if (error !== null) {
           setError(error);

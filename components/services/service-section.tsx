@@ -1,6 +1,6 @@
 "use client";
 
-import useServiceData from "../../hooks/useServiceData";
+import useServiceData, { ServiceType } from "../../hooks/useServiceData";
 import ServiceCard from "./service-card";
 
 const ServiceSection = () => {
@@ -23,12 +23,12 @@ const ServiceSection = () => {
         ) : error ? (
           <p>getting error when fetching the data</p>
         ) : (
-          data.map((service: any) => (
+          data.map((service: ServiceType) => (
             <ServiceCard
               key={service.id}
               title={service.title}
               description={service.description}
-              icon={service.icon}
+              imageUrl={service.imageUrl}
             />
           ))
         )}

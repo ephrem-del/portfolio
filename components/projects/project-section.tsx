@@ -1,14 +1,7 @@
 "use client";
 
-import useProjectData from "../../hooks/useProjectData";
+import useProjectData, { ProjectType } from "../../hooks/useProjectData";
 import ProjectCard from "./project-card";
-
-export enum Skills {
-  All = "All",
-  Flutter = "Flutter",
-  Next = "Next",
-  React = "React",
-}
 
 const ProjectSection = () => {
   const {
@@ -17,6 +10,7 @@ const ProjectSection = () => {
     setSelectedSkill,
     isLoading,
     error,
+    allSkills,
   } = useProjectData();
 
   return (
@@ -31,17 +25,17 @@ const ProjectSection = () => {
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
       <div className="flex gap-3 p-2">
-        {Object.values(Skills).map((skill, index) => (
+        {allSkills.map((skill, index) => (
           <button
             key={index}
             onClick={() => setSelectedSkill(skill)}
-            className={`px-5 py-3 text-lg font-poppins rounded-lg  ${
+            className={`px-5 py-3 text-lg font-poppins rounded-lg ${
               selectedSkill === skill
                 ? "bg-darkorange-100"
                 : "bg-whitesmoke-200 dark:bg-white text-black dark:hover:bg-gainsboro-200"
             }`}
           >
-            {skill}
+            {skill.charAt(0).toUpperCase() + skill.slice(1)}
           </button>
         ))}
       </div>
@@ -51,12 +45,13 @@ const ProjectSection = () => {
         ) : error ? (
           <p>getting error when fetching the data</p>
         ) : (
-          filteredProjects.map((project: any) => (
+          filteredProjects.map((project: ProjectType) => (
             <ProjectCard
               key={project.id}
               imageUrl={project.imageUrl}
               title={project.title}
               description={project.description}
+              skills={project.skills}
             />
           ))
         )}

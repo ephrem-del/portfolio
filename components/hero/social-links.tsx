@@ -4,7 +4,7 @@ import { FaDiscord, FaFacebook, FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 const socialLinks = [
   { id: 1, href: "", icon: FaLinkedinIn },
-  { id: 2, href: "", icon: FaGithub },
+  { id: 2, href: "https://github.com/ermias5", icon: FaGithub },
   { id: 3, href: "", icon: FaFacebook },
   { id: 4, href: "", icon: FaDiscord },
 ];

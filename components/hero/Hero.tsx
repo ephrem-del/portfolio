@@ -1,9 +1,13 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
-import ToggleTheme from "../theme-toggle/theme";
+import ToggleTheme from "../theme-toggle/toggle-theme";
 import SocialLinks from "./social-links";
+import useHeroData from "../../hooks/useHeroData";
 
 const Hero = () => {
+  const { data, isLoading, error } = useHeroData();
   return (
     <>
       <div className="fixed flex items-center justify-center top-[7rem] left-[1rem] cursor-pointer tablet:top-[20rem] tablet:left-[10rem]">
@@ -11,7 +15,7 @@ const Hero = () => {
       </div>
       <div
         id="hero"
-        className={`flex flex-col-reverse items-center justify-center px-[5%] gap-10 font- dark:text-white tablet:flex-row tablet:gap-[140px] tablet:px-[10%] desktop:px-[20%]`}
+        className={`flex flex-col-reverse items-center justify-center px-[5%] gap-10 font- dark:text-white tablet:flex-row tablet:gap-[140px] tablet:px-[10%] desktop:px-[20%] pt-[100px]`}
       >
         <div className="w-full flex flex-col tablet:min-w-[450px] ">
           <div className="flex flex-col desktop:gap-[40px] desktop:max-w-full ">
@@ -26,17 +30,16 @@ const Hero = () => {
                 <div className="flex items-start justify-start gap-2 desktop:mt-[-13px] desktop:text-5xl desktop:flex-col">
                   <h1 className="text-inherit tracking-[0.03em] font-bold font-[inherit] desktop:inline-block desktop:max-w-full desktop:w-[500px] desktop:m-0">{`Flutter`}</h1>
                   <div className=" flex justify-end desktop:mt-[-25px] desktop:self-stretch">
-                    <h1 className="text-inherit tracking-[0.03em] font-bold font-[inherit] desktop:m-0 ">{`Developer `}</h1>
+                    <h1 className="text-inherit tracking-[0.03em] font-bold font-[inherit] desktop:m-0 ">{`Developer`}</h1>
                   </div>
                 </div>
               </div>
             </div>
             <div className="flex flex-col items-start justify-start gap-[27px] max-w-full text-justify">
               <div className="tablet:text-xl">
-                Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa
-                nibh lectus netus in. Aliquet donec morbi convallis pretium.
-                Turpis tempus pharetra
+                {data.map((descriptionData) => descriptionData.description)}
               </div>
+
               <button className=" bg-orange-400 rounded text-lg px-[1rem] py-[.5rem] text-white desktop:text-4xl ">
                 hire me
               </button>
@@ -44,16 +47,22 @@ const Hero = () => {
           </div>
         </div>
         <div>
-          <div className="h-[300px] w-[250px] relative max-w-full desktop:min-w-[538px] desktop:h-[620px] desktop:w-[540px]  ">
-            <Image
-              className="object-cover"
-              fill
-              alt="personal image"
-              src="/group-2@2x.png"
-            />
-            <div className="hidden desktop:flex">
-              <div className="absolute top-[78px] left-[82px] bg-darkorange-200 w-[374px] h-[83px] z-[1]" />
-            </div>
+          <div className="rounded-full overflow-hidden h-[300px] w-[250px] relative  desktop:h-[400px] desktop:w-[400px]  ">
+            {isLoading ? (
+              <div>Loading...</div>
+            ) : error ? (
+              <div>Error: {error}</div>
+            ) : (
+              data.map((image, index) => (
+                <Image
+                  src={image.imageUrl}
+                  alt={`Image of ${index}`}
+                  key={index}
+                  className="object-cover"
+                  fill
+                />
+              ))
+            )}
           </div>
           <div className="hidden tablet:flex">
             <div className="flex items-center justify-center gap-5 my-8 w-full">

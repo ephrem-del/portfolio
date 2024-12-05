@@ -1,21 +1,19 @@
 import { useEffect, useState } from "react";
 import { fetchFirestoreData } from "../components/lib/firebase-crud/fetch-data";
 
-export interface ServiceType {
-  id?: string;
-  title: string;
+export interface HeroType {
   description: string;
-  imageUrl: string;
+  imageUrl: any;
 }
 
-const useServiceData = () => {
-  const [data, setData] = useState<ServiceType[]>([]);
+const useHeroData = () => {
+  const [data, setData] = useState<HeroType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     setIsLoading(true);
-    fetchFirestoreData<ServiceType>("services", 4)
+    fetchFirestoreData<HeroType>("hero", 1)
       .then(({ collectionData, error }) => {
         if (error !== null) {
           setError(error);
@@ -31,4 +29,4 @@ const useServiceData = () => {
   return { data, isLoading, error };
 };
 
-export default useServiceData;
+export default useHeroData;

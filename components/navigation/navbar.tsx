@@ -1,11 +1,14 @@
 "use client";
+
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import logo from "../../public/subtract.png";
 import NavLinks from "./nav-links";
 import SideNav from "./side-navigation";
+import useUploadCVData from "../../hooks/useUploadCVData";
 
 const Navbar = () => {
+  const { data, isLoading, error } = useUploadCVData();
   const [isScrolled, setIsScrolled] = useState(false);
 
   const desktopClassName =
@@ -27,6 +30,7 @@ const Navbar = () => {
     };
   }, []);
 
+  const cvUrl = data.length > 0 ? data[0]?.cvUrl : null;
   return (
     <header
       className={` w-full flex items-center justify-center desktop:gap-0 gap-[50px] ${
@@ -58,12 +62,12 @@ const Navbar = () => {
           </div>
         </nav>
       </nav>
-      <div className="flex flex-col items-start justify-start  bg-darkorange-100 rounded-md desktop:ml-4">
-        <button className="cursor-pointer [border:none] px-[4px] py-1  rounded-md bg-darkorange-100 flex flex-row items-start justify-start whitespace-nowrap hover:bg-orangered desktop:p-[14px] desktop:text-md">
+      <div className="flex flex-col items-start justify-start bg-darkorange-100 rounded-md desktop:ml-4">
+        <button className="cursor-pointer [border:none] px-[4px]  rounded-md bg-darkorange-100 flex flex-row items-start justify-start whitespace-nowrap hover:bg-orangered desktop:p-[10px]">
           <a
-            href={""}
-            download="https://console.firebase.google.com/project/portfolio-d5a6b/storage/portfolio-d5a6b.appspot.com/files"
-            className="[text-decoration:none] relative text-md tracking-[0.03em] text-white inline-block z-[1]"
+            href={cvUrl || "#"}
+            download
+            className="[text-decoration:none] relative text-2xl font-poppins tracking-[0.03em] text-white inline-block z-[1]"
           >
             Downlaod CV
           </a>

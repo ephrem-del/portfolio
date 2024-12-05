@@ -10,7 +10,7 @@ type FirestoreResponse<T> =
       collectionData: null;
       error: string;
     };
-export async function getFirestoreData<T>(
+export async function fetchFirestoreData<T>(
   collectionName: string,
   limitNumber: number
 ): Promise<FirestoreResponse<T>> {

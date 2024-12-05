@@ -8,7 +8,9 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Navigation, Pagination } from "swiper/modules";
 import TestimonialCard from "./testimonial-card";
-import useTestimonialData from "../../hooks/useTestimonialData";
+import useTestimonialData, {
+  TestimonialType,
+} from "../../hooks/useTestimonialData";
 
 const TestimonialsSection = () => {
   const { data, isLoading, error } = useTestimonialData();
@@ -31,7 +33,7 @@ const TestimonialsSection = () => {
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        className="w-[350px] tablet:w-[1200px] "
+        className="w-[350px] tablet:w-[1200px]"
         breakpoints={{
           320: {
             slidesPerView: 1,
@@ -52,7 +54,7 @@ const TestimonialsSection = () => {
         ) : error ? (
           <p>getting error when fetching the data</p>
         ) : (
-          data.map((testimonial: any) => {
+          data.map((testimonial: TestimonialType) => {
             return (
               <SwiperSlide key={testimonial.id}>
                 <TestimonialCard
