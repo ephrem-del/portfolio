@@ -33,7 +33,7 @@ const TestimonialsSection = () => {
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        className="w-[350px] tablet:w-[1200px]"
+        className="w-[350px] tablet:w-[600px] laptop:w-[1000px]"
         breakpoints={{
           320: {
             slidesPerView: 1,
@@ -41,13 +41,23 @@ const TestimonialsSection = () => {
           },
           640: {
             slidesPerView: 1,
-            spaceBetween: 30,
+            spaceBetween: 20,
           },
           1024: {
             slidesPerView: 2,
-            spaceBetween: 40,
+            spaceBetween: 20,
+          },
+          1440: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1920: {
+            slidesPerView: 3,
+            spaceBetween: 20,
           },
         }}
+        onSwiper={(swiper) => swiper.update()}
+        onSlideChange={() => console.log("Slide changed")}
       >
         {isLoading ? (
           <p>Loading</p>

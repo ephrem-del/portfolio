@@ -15,8 +15,13 @@ const SocialLinks = () => {
       {socialLinks.map((socialLink) => {
         const LinkIcon = socialLink.icon;
         return (
-          <Link key={socialLink.id} href={socialLink.href} className=" ">
-            <LinkIcon className="mx-3 size-5 text-dimgray dark:text-blue-400 hover:text-blue-800 desktop:size-8" />
+          <Link
+            key={socialLink.id}
+            href={socialLink.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <LinkIcon className="mx-3 size-5 text-dimgray dark:text-blue-400 hover:text-blue-800 desktop:size-6" />
           </Link>
         );
       })}
