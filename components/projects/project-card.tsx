@@ -11,17 +11,20 @@ const ProjectCard: React.FC<ProjectType> = ({
   description,
 }) => {
   return (
-    <div className="flex flex-col justify-start text-black rounded-lg">
-      <Image
-        src={imageUrl ?? imagePlaceholder}
-        alt={`my ${title} image`}
-        width={320}
-        height={200}
-        className="h-[200px] w-[320px] relative tablet:h-[400px] tablet:w-[350px]"
-      />
+    <div className="flex flex-col items-center tablet:items-start  text-black rounded-lg laptop:items-center  w-[300px] relative  tablet:w-[200px] laptop:w-[300px]">
+      <div className="relative h-[200px] w-[300px] tablet:h-[250px] tablet:w-[200px] laptop:h-[250px] laptop:w-[300px]">
+        <Image
+          src={imageUrl ?? imagePlaceholder}
+          alt={`my ${title} image`}
+          fill
+          className="object-cover"
+        />
+      </div>
 
       <h3 className="text-sm text-darkorange-100 pt-3">{title}</h3>
-      <h1 className="text-md mt-0 dark:text-white">{description}</h1>
+      <h1 className="mt-2 text-sm text-gray-700  line-clamp-2 dark:text-white">
+        {description}
+      </h1>
     </div>
   );
 };
