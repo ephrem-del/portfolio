@@ -32,9 +32,9 @@ const ContactSection = () => {
     <section
       id="contact"
       onSubmit={sendEmail}
-      className="px-[5%] flex flex-col items-center justify-center dark:text-white"
+      className="px-[5%] pt-[10%] flex flex-col items-center justify-center dark:text-white"
     >
-      <h1 className="text-2xl tablet:text-5xl">Let's Work Together</h1>
+      <h1 className="text-3xl tablet:text-3xl mb-0">Let's Work Together</h1>
       <div className="flex items-center justify-center ">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
         voluptates, labore nisi

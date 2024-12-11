@@ -16,7 +16,7 @@ const ProjectSection = () => {
   return (
     <section
       id="projects"
-      className="flex flex-col items-center justify-center dark:text-white px-[5%] tablet:px-[10%] desktop:px-[17%]"
+      className="flex flex-col items-center justify-center pt-[10%]  dark:text-white px-[5%] tablet:px-[10%] desktop:px-[17%]"
     >
       <h1 className="text-3xl tablet:text-3xl mb-0">My Projects</h1>
       <p className=" tablet:px-[100px]">
@@ -25,7 +25,6 @@ const ProjectSection = () => {
         fugit eos similique quasi odio quo laudantium, minus sunt.
       </p>
       <div className="flex flex-wrap justify-start gap-x-3 gap-y-2 tablet:gap-3 tablet:p-2">
-
         {allSkills.map((skill, index) => (
           <button
             key={index}

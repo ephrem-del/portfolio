@@ -10,12 +10,12 @@ const Hero = () => {
   const { data, isLoading, error } = useHeroData();
   return (
     <>
-      <div className="fixed flex items-center justify-center top-[7rem] left-[1rem] cursor-pointer tablet:top-[10rem] tablet:left-[2rem] laptop:top-[20rem] laptop:left-[7rem]">
+      <div className="fixed flex items-center justify-center top-[10rem] left-[1rem] cursor-pointer tablet:top-[10rem] tablet:left-[2rem] laptop:top-[20rem] laptop:left-[7rem]">
         <ToggleTheme />
       </div>
       <div
         id="hero"
-        className={`flex flex-col-reverse items-center justify-center px-[5%]  pt-[15%]  gap-10 font- dark:text-white tablet:flex-row tablet:gap-[140px] tablet:px-[20%] desktop:px-[20%] desktop:pt-[10%] `}
+        className={`flex flex-col-reverse items-center justify-center px-[5%]  pt-[10%]  gap-10 font- dark:text-white tablet:flex-row tablet:gap-[140px] tablet:px-[20%] desktop:px-[20%] desktop:pt-[10%] `}
       >
         <div className="w-full flex flex-col ">
           <div className="flex flex-col desktop:gap-[20px]  ">

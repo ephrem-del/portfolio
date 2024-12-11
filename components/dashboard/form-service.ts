@@ -41,7 +41,11 @@ export const prepareFormData = (formData: FormData) => {
       };
       break;
   }
-  return { category: formData.category, data, file: formData.file };
+  return {
+    category: formData.category,
+    data,
+    file: formData.file,
+  };
 };
 
 export const handleSubmitToAPI = async ({ category, data, file }: any) => {

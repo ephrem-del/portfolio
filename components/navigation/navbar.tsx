@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const desktopClassName =
-    "[text-decoration:none] tracking-[0.03em] font-poppins dark:text-white cursor-pointer hover:text-blue-600 text-nowrap tablet:px-[6px] laptop:px-[12px]";
+    "[text-decoration:none] text-black tracking-[0.03em] font-poppins dark:text-white cursor-pointer hover:text-blue-600 text-nowrap tablet:px-[6px] laptop:px-[12px]";
 
   useEffect(() => {
     const handleScroll = () => {
