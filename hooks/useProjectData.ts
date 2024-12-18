@@ -5,7 +5,6 @@ export interface ProjectType {
   id?: string;
   title: string;
   imageUrl: string;
-  imageUrl2?: string;
   description: string;
   skills: string[];
 }
@@ -22,7 +21,6 @@ export default function useProjectData() {
     setIsLoading(true);
     fetchFirestoreData<ProjectType>("projects", 3)
       .then(({ collectionData, error }) => {
-        console.log(collectionData);
         if (error !== null) {
           setError(error);
         } else {

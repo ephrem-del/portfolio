@@ -12,7 +12,6 @@ export interface FormData {
   feedback: string;
   techStack: string;
   file: File | null;
-  file2?: File | null;
 }
 
 export default function useFormHandler() {
@@ -24,7 +23,6 @@ export default function useFormHandler() {
     feedback: "",
     techStack: "",
     file: null,
-    file2: null,
   });
 
   const handleInputChange = (
@@ -38,8 +36,7 @@ export default function useFormHandler() {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
-    const file2 = e.target.files?.[0] || null;
-    setFormData((prevData) => ({ ...prevData, file, file2 }));
+    setFormData((prevData) => ({ ...prevData, file }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -60,7 +57,6 @@ export default function useFormHandler() {
         feedback: "",
         techStack: "",
         file: null,
-        file2: null,
       });
     } catch (error) {
       console.error("Error while submitting form:", error);

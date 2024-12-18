@@ -57,7 +57,6 @@ const TestimonialsSection = () => {
           },
         }}
         onSwiper={(swiper) => swiper.update()}
-        onSlideChange={() => console.log("Slide changed")}
       >
         {isLoading ? (
           <p>Loading</p>
