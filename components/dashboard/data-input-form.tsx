@@ -25,10 +25,10 @@ const DashboardDataInputForm = ({
   onFileChange,
 }: FormProps) => {
   const inputStyle =
-    "w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50";
+    "w-full rounded-md border border-gray-300 px-3 py-1 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50";
 
   return (
-    <div className="p-4 border border-gray-300 rounded-md bg-white space-y-3">
+    <div className="p-2 border border-gray-300 rounded-md bg-white space-y-2">
       {fields.map((field: FieldsType) => (
         <div key={field.name}>
           <label className="block space-y-2">

@@ -1,6 +1,6 @@
 import { FormDataTypes } from "../../../hooks/useDashboardFormHandler";
 import { CategoryType } from "../../../types/type";
-import createFirestoreData from "../../lib/firebase-crud/firestore-document-creator";
+import createDocumentBasedOnCategory from "../../lib/firebase-crud/firestore-document-creator";
 import deleteFirestoreDocument from "../../lib/firebase-crud/delete-resource-handler";
 import uploadFile from "../../lib/firebase-crud/storage";
 import updateFirestoreData from "../../lib/firebase-crud/firestore-document-updator";
@@ -22,7 +22,10 @@ class DashboardCRUD {
       return { ...formData, id };
     } else {
       // Create new document
-      const newDoc = await createFirestoreData({ data: formData, category });
+      const newDoc = await createDocumentBasedOnCategory({
+        data: formData,
+        category,
+      });
       return newDoc;
     }
   }

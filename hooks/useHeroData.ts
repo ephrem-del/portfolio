@@ -3,6 +3,9 @@ import { fetchFirestoreCollection } from "../components/lib/firebase-crud/collec
 
 export interface HeroType {
   id: string;
+  greeting: string;
+  name: string;
+  title: string;
   description: string;
   imageUrl: any;
 }
