@@ -14,6 +14,7 @@ export interface FormDataTypes {
   cvUrl?: string;
   imageUrl?: string;
   linkUrl?: string;
+  greeting?: string;
 }
 
 export default function useFormHandler<T extends { id: string }>(
@@ -24,8 +25,10 @@ export default function useFormHandler<T extends { id: string }>(
   const [editingItem, setEditingItem] = useState<FormDataTypes | null>(null);
   const [itemToDelete, setItemToDelete] = useState<T | null>(null);
   const [isConfirmingDelete, setIsConfirmingDelete] = useState<boolean>(false);
+  const [isModalButtonDisabled, setIsModalButtonDisabled] =
+    useState<boolean>(false);
 
-  const [formData, setFormData] = useState<FormDataTypes>({
+  const initialFormData = {
     name: "",
     title: "",
     description: "",
@@ -33,7 +36,10 @@ export default function useFormHandler<T extends { id: string }>(
     skills: "",
     file: null,
     linkUrl: "",
-  });
+    greeting: "",
+  };
+
+  const [formData, setFormData] = useState<FormDataTypes>(initialFormData);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -48,7 +54,7 @@ export default function useFormHandler<T extends { id: string }>(
   };
 
   const startEditing = (item: FormDataTypes) => {
-    setEditingItem({
+    const itemFormData = {
       id: item.id,
       name: item.name,
       title: item.title,
@@ -57,17 +63,10 @@ export default function useFormHandler<T extends { id: string }>(
       skills: item.skills,
       imageUrl: item.imageUrl,
       linkUrl: item.linkUrl,
-    });
-    setFormData({
-      id: item.id,
-      name: item.name,
-      title: item.title,
-      description: item.description,
-      feedback: item.feedback,
-      skills: item.skills,
-      imageUrl: item.imageUrl,
-      linkUrl: item.linkUrl,
-    });
+      greeting: item.greeting,
+    };
+    setEditingItem(itemFormData);
+    setFormData(itemFormData);
   };
 
   const saveItem = async () => {
@@ -89,21 +88,13 @@ export default function useFormHandler<T extends { id: string }>(
     } catch (error) {
       console.error("Error saving item:", error);
     }
+
+    setIsModalButtonDisabled(true);
   };
 
   const clearFormEntries = () => {
     setEditingItem(null);
-    setFormData({
-      name: "",
-      title: "",
-      description: "",
-      feedback: "",
-      skills: "",
-      file: null,
-      imageUrl: "",
-      cvUrl: "",
-      linkUrl: "",
-    });
+    setFormData(initialFormData);
   };
 
   async function deleteItem(itemToDelete: FormDataTypes) {
@@ -144,6 +135,7 @@ export default function useFormHandler<T extends { id: string }>(
     isConfirmingDelete,
     collectionData,
     formData,
+    isModalButtonDisabled,
     handleInputChange,
     handleFileChange,
     saveItem,

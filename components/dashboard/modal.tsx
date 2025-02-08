@@ -17,7 +17,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, title, children, onClose }) => {
         className="bg-white w-full max-w-md mx-auto p-6 rounded-lg shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
-        {title && <h2 className="text-lg font-bold mb-4">{title}</h2>}
+        {title && <h2 className="text-lg font-bold mb-2">{title}</h2>}
         <div>{children}</div>
       </div>
     </div>

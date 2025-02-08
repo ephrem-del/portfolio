@@ -27,6 +27,9 @@ export const formFields: { [key: string]: FormFieldType[] } = {
     { name: "imageUrl", label: "Image URL", type: "file" },
   ],
   hero: [
+    { name: "greeting", label: "Greetings", type: "textarea" }, // Hi I am
+    { name: "name", label: "Name", type: "text" }, // ephrem mekuria
+    { name: "title", label: "Title", type: "text" }, // flutter developer
     { name: "description", label: "Description", type: "textarea" },
     { name: "imageUrl", label: "Image URL", type: "file" },
   ],
@@ -53,7 +56,15 @@ export const tableHeaders: { [key: string]: string[] } = {
     "Actions",
   ],
   testimonials: ["Name", "Title", "Feedback", "Image", "Created At", "Actions"],
-  hero: ["Description", "Image", "Created At", "Actions"],
+  hero: [
+    "Greetings",
+    "Name",
+    "Title",
+    "Description",
+    "Image",
+    "Created At",
+    "Actions",
+  ],
   aboutMe: ["Skills", "Image", "Created At", "Actions"],
   uploadCV: ["CV Url", "Created At", "Actions"],
   socialMediaPlatforms: ["Name", "link Url", "image", "created at", "Actions"],
