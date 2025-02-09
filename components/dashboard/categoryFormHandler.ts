@@ -21,7 +21,11 @@ export default function prepareFormData(
       };
       break;
     case "aboutMe":
-      data = { skills: techStackArray };
+      data = {
+        description: formData.description,
+        title: formData.title,
+        skills: techStackArray,
+      };
       break;
     case "services":
       data = { description: formData.description, title: formData.title };
