@@ -13,6 +13,7 @@ export interface DataItem {
   skills?: string[];
   cvUrl?: string;
   linkUrl?: string;
+  greeting?: string;
 }
 
 export enum CategoryType {

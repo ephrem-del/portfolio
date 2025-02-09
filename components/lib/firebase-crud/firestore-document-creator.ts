@@ -2,7 +2,8 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 import { FormDataTypes } from "../../../hooks/useDashboardFormHandler";
 
-export const createCategoryDocument = async ({
+  export const createDocumentBasedOnCategory = async ({
+
   category,
   data,
 }: {
@@ -25,4 +26,4 @@ export const createCategoryDocument = async ({
   }
 };
 
-export default createCategoryDocument;
+export default createDocumentBasedOnCategory;

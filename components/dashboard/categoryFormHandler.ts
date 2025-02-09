@@ -13,10 +13,19 @@ export default function prepareFormData(
   let data = {};
   switch (category) {
     case "hero":
-      data = { description: formData.description };
+      data = {
+        greeting: formData.greeting,
+        name: formData.name,
+        title: formData.title,
+        description: formData.description,
+      };
       break;
     case "aboutMe":
-      data = { skills: techStackArray };
+      data = {
+        description: formData.description,
+        title: formData.title,
+        skills: techStackArray,
+      };
       break;
     case "services":
       data = { description: formData.description, title: formData.title };

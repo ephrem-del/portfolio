@@ -3,6 +3,8 @@ import { fetchFirestoreCollection } from "../components/lib/firebase-crud/collec
 
 interface AboutMe {
   id: string;
+  title: string;
+  description: string;
   skills: string[];
   imageUrl: string;
 }

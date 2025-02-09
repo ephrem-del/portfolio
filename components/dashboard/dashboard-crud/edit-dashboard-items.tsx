@@ -25,6 +25,7 @@ export default function EditDashboardData<T extends DataItem>({
   const {
     collectionData,
     formData,
+    isModalButtonDisabled,
     handleInputChange,
     handleFileChange,
     saveItem,
@@ -73,7 +74,7 @@ export default function EditDashboardData<T extends DataItem>({
           onInputChange={handleInputChange}
           onFileChange={handleFileChange}
         />
-        <div className="flex justify-end gap-2">
+        <div className="flex justify-end gap-10">
           <button
             onClick={() => {
               setIsFormModalOpen(false);
@@ -85,6 +86,7 @@ export default function EditDashboardData<T extends DataItem>({
 
           <button
             onClick={saveItem}
+            disabled={isModalButtonDisabled}
             className={`${baseButtonStyle} ${primaryButtonStyle}`}
           >
             Save

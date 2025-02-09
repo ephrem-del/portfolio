@@ -12,16 +12,21 @@ const RenderRowData = <T extends DataItem>({
 }: ServiceItemProps<T>) => {
   return (
     <>
-      {["socialMediaPlatforms", "testimonials"].includes(category) && (
+      {category === "hero" && (
+        <td className=" px-6 py-4 text-sm text-gray-600">{row.greeting}</td>
+      )}
+      {["hero", "socialMediaPlatforms", "testimonials"].includes(category) && (
         <td className=" px-6 py-4 text-sm text-gray-600">{row.name}</td>
       )}
-      {["services", "projects", "testimonials"].includes(category) && (
+      {["hero", "aboutMe", "services", "projects", "testimonials"].includes(
+        category
+      ) && (
         <td className="px-6 py-4 border-b text-sm text-gray-800">
           {row.title}
         </td>
       )}
 
-      {["hero", "services", "projects"].includes(category) && (
+      {["hero", "aboutMe", "services", "projects"].includes(category) && (
         <td className=" px-6 py-4 text-sm text-gray-600">{row.description}</td>
       )}
 

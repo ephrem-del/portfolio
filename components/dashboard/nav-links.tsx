@@ -5,14 +5,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
-  { name: "services", href: "/dashboard/services" },
-  { name: "projects", href: "/dashboard/projects" },
-  { name: "testimonials", href: "/dashboard/testimonials" },
   { name: "hero", href: "/dashboard/hero" },
   {
     name: "about me",
     href: "/dashboard/about-me",
   },
+  { name: "services", href: "/dashboard/services" },
+  { name: "projects", href: "/dashboard/projects" },
+  { name: "testimonials", href: "/dashboard/testimonials" },
+
   { name: "upload cv", href: "/dashboard/upload-cv" },
   { name: "social link", href: "/dashboard/social-media-platforms" },
 ];
